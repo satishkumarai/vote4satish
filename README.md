@@ -13,39 +13,31 @@ Page 6 → Open Source Impact → APJ → **Satish Kumar | LTIMindtree, India**
 
 ## 🎥 How to Vote
 
-Watch the 1-minute step-by-step guide:
-
-👉 **[How to Vote](https://tinyurl.com/how2vote4satish)**
+👉 **[1-Minute Voting Guide](https://tinyurl.com/how2vote4satish)**
 
 ## 🌐 Live Landing Page
 
-👉 **[https://satishkumarai.github.io/vote4satish/](https://satishkumarai.github.io/vote4satish/)**
-
-The landing page includes:
-
-- 🗳️ Voting link
-- 📱 QR code for voting
-- 🎥 Step-by-step voting guide
-- 📣 Campaign post
-- 📚 Snowflake Chronicles
-- 💻 Open-source GitHub projects
-- ❄️ Snowflake Community Awards information
+👉 **https://satishkumarai.github.io/vote4satish/**
 
 ## 📚 Snowflake Chronicles
-
-Explore practical Snowflake tutorials, architecture patterns, open-source projects, and hands-on technical insights.
 
 👉 **[Snowflake Chronicles on Medium](https://medium.com/@snowflakechronicles)**
 
 ## 💻 Open Source
-
-Explore Snowflake projects, frameworks, and implementation examples.
 
 👉 **[GitHub — Satish Kumar](https://github.com/satishkumarai/)**
 
 ## ❄️ Snowflake Community Awards
 
 👉 **[Snowflake Community Awards 2026](https://www.snowflake.com/en/community-awards/)**
+
+## Disclaimer
+
+This page and its content are created and maintained by **Satish Kumar in a personal capacity**. They are intended solely to share information about my nomination for the **2026 Snowflake Community Awards – Open Source Impact (APJ)**.
+
+This page is **not affiliated with, sponsored, endorsed, or officially supported by LTIMindtree or Snowflake**, and does not represent the views or positions of either organization.
+
+**LTIMindtree** and **Snowflake** names and trademarks belong to their respective owners. This page does not imply any official association, endorsement, or sponsorship by either organization.
 
 ---
 
