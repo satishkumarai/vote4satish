@@ -3,114 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vote for Satish | Snowflake Community Awards 2026</title>
+<title>Vote for Satish Kumar — Snowflake Community Awards 2026</title>
+<meta name="description" content="Satish Kumar is a finalist for the 2026 Snowflake Community Awards — Open Source Impact (APJ). Vote before September 15, 2026.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Vote for Satish Kumar — Snowflake Community Awards 2026">
+<meta property="og:description" content="Finalist, Open Source Impact (APJ) — recognizing open-source work through Snowflake Chronicles.">
+<meta property="og:image" content="https://satishkumarai.github.io/vote4satish/finalist-badge.jpeg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f7f9fb;color:#17202a}
-.container{max-width:720px;margin:auto;padding:32px 20px}
-.card{background:white;border-radius:24px;padding:32px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08)}
-h1{font-size:30px;margin:0 0 8px}
-h2{font-size:20px;margin:0 0 22px;font-weight:500}
-p{line-height:1.6}
-.qr{width:280px;max-width:80%;margin:20px auto;display:block}
-.button{display:block;padding:16px;margin:12px 0;border-radius:12px;text-decoration:none;font-weight:700;font-size:17px}
-.vote{background:#29b5e8;color:white}
-.guide{background:#eef3f6;color:#17202a}
-.section{text-align:left;margin-top:28px;padding-top:22px;border-top:1px solid #e5e7eb}
-.small{font-size:14px;color:#667085}
-.footer{margin-top:25px;font-size:14px;color:#667085}
-</style>
-<style>
-.finalist-badge {
-  width: 200px;
-  max-width: 60%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
+  :root {
+    --navy-deep: #0A1420;
+    --navy: #0D1B2A;
+    --navy-raised: #132A3E;
+    --navy-line: #1E3A52;
+    --cyan: #29B5E8;
+    --cyan-dark: #1B6FA8;
+    --amber: #F59E0B;
+    --ink: #EAF1F6;
+    --ink-muted: #93A7BA;
+    --ink-faint: #5D7288;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(41,181,232,0.14), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(245,158,11,0.08), transparent 55%);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: -0.01em; }
+
+  .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+
+  a { color: var(--cyan); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    border-bottom: 1px solid var(--navy-line);
+    padding: 18px 0;
+  }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--ink-muted); }
+  .brand .flake { color: var(--cyan); font-size: 1.1rem; }
+  .topbar .deadline { font-size: 0.78rem; color: var(--amber); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 64px 0 40px; text-align: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--cyan); border: 1px solid var(--navy-line);
+    background: rgba(41,181,232,0.06);
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 28px;
+  }
+
+  .badge-frame {
+    width: 168px; height: 168px; margin: 0 auto 32px;
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--navy-line);
+    box-shadow: 0 0 0 1px rgba(41,181,232,0.15), 0 30px 60px -25px rgba(41,181,232,0.35);
+  }
+  .badge-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+    line-height: 1.15;
+    color: #fff;
+    max-width: 620px;
+    margin: 0 auto 14px;
+  }
+  .hero h1 .accent { color: var(--cyan); }
+
+  .hero .category {
+    font-size: 1rem; color: var(--ink-muted); margin-bottom: 6px;
+  }
+  .hero .who {
+    font-size: 0.92rem; color: var(--ink-faint); margin-bottom: 36px;
+  }
+  .hero .who strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- CTA cluster ---------- */
+  .cta-cluster { display: flex; flex-direction: column; gap: 14px; align-items: center; margin-bottom: 8px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; max-width: 380px;
+    padding: 17px 28px; border-radius: 12px;
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.02rem; font-weight: 600;
+    text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-vote {
+    background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+    color: #051019;
+    box-shadow: 0 16px 32px -14px rgba(41,181,232,0.55);
+  }
+  .btn-vote:hover { box-shadow: 0 20px 40px -14px rgba(41,181,232,0.7); transform: translateY(-1px); }
+
+  .btn-linkedin {
+    background: var(--navy-raised);
+    color: var(--ink);
+    border: 1px solid rgba(41,181,232,0.4);
+  }
+  .btn-linkedin:hover { border-color: var(--cyan); background: #16324a; transform: translateY(-1px); }
+  .btn-linkedin svg { flex-shrink: 0; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-muted);
+    border: 1px solid var(--navy-line);
+    font-weight: 500;
+    font-size: 0.92rem;
+    padding: 13px 24px;
+  }
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink-faint); }
+
+  .cta-note { font-size: 0.78rem; color: var(--ink-faint); margin-top: 4px; text-align: center; }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 52px 0; border-top: 1px solid var(--navy-line); }
+  .section-label {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-faint); margin-bottom: 18px;
+  }
+  .section-label .n { color: var(--amber); }
+
+  /* ---------- How to vote / flow ---------- */
+  .flow { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+  .flow-step {
+    display: flex; gap: 18px; padding: 18px 0;
+    border-bottom: 1px solid var(--navy-line);
+  }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--cyan);
+    flex-shrink: 0; width: 28px; padding-top: 2px;
+  }
+  .flow-body h3 { font-size: 1.05rem; color: #fff; font-weight: 500; margin-bottom: 4px; }
+  .flow-body p { font-size: 0.9rem; color: var(--ink-muted); }
+  .flow-body .path {
+    display: inline-block; margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;
+    color: var(--amber); background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.25);
+    padding: 6px 12px; border-radius: 8px;
+  }
+
+  .video-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 22px; font-size: 0.9rem; color: var(--ink);
+    text-decoration: none; border-bottom: 1px dashed var(--ink-faint);
+    padding-bottom: 2px;
+  }
+  .video-link:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  .network-note {
+    margin-top: 22px; font-size: 0.85rem; color: var(--ink-muted);
+    background: var(--navy-raised); border: 1px solid var(--navy-line);
+    border-radius: 10px; padding: 14px 16px;
+  }
+
+  /* ---------- QR ---------- */
+  .qr-card {
+    display: flex; align-items: center; gap: 22px;
+    background: var(--navy-raised); border: 1px solid var(--navy-line);
+    border-radius: 14px; padding: 22px; margin-top: 20px;
+  }
+  .qr-card img { width: 96px; height: 96px; border-radius: 8px; background: #fff; padding: 6px; flex-shrink: 0; }
+  .qr-card .qr-text p { font-size: 0.85rem; color: var(--ink-muted); }
+  .qr-card .qr-text a { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+
+  /* ---------- Connect (LinkedIn) ---------- */
+  .connect-card {
+    background: linear-gradient(160deg, rgba(41,181,232,0.09), rgba(27,111,168,0.04));
+    border: 1px solid rgba(41,181,232,0.3);
+    border-radius: 16px; padding: 30px 26px; text-align: center;
+    margin-top: 8px;
+  }
+  .connect-card h2 { font-size: 1.35rem; color: #fff; margin-bottom: 10px; }
+  .connect-card p { font-size: 0.92rem; color: var(--ink-muted); max-width: 480px; margin: 0 auto 22px; }
+
+  /* ---------- Support ---------- */
+  .support-line {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: var(--navy-raised); border: 1px solid var(--navy-line);
+    border-radius: 10px; padding: 16px 18px; margin-top: 18px; flex-wrap: wrap;
+  }
+  .support-line span { font-size: 0.88rem; color: var(--ink-muted); }
+  .support-line a.mono { font-size: 0.85rem; }
+
+  .thanks { margin-top: 20px; font-size: 0.9rem; color: var(--ink-faint); }
+
+  /* ---------- Explore grid ---------- */
+  .explore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+  @media (max-width: 560px) { .explore-grid { grid-template-columns: 1fr; } }
+  .explore-card {
+    display: block; text-decoration: none;
+    background: var(--navy-raised); border: 1px solid var(--navy-line);
+    border-radius: 12px; padding: 18px; transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .explore-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+  .explore-card .ic { font-size: 1.3rem; margin-bottom: 10px; display: block; }
+  .explore-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; color: #fff; font-weight: 600; margin-bottom: 4px; }
+  .explore-card p { font-size: 0.8rem; color: var(--ink-faint); }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 40px 0 60px; }
+  .disclaimer {
+    font-size: 0.78rem; line-height: 1.7; color: var(--ink-faint);
+    border-top: 1px solid var(--navy-line); padding-top: 26px;
+  }
+  .disclaimer strong { color: var(--ink-muted); }
+  .footer-brand {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 24px; flex-wrap: wrap; gap: 10px;
+    font-size: 0.8rem; color: var(--ink-faint);
+  }
+  .footer-brand .name { color: var(--ink-muted); }
+
+  @media (max-width: 480px) {
+    .hero { padding: 48px 0 32px; }
+    section { padding: 40px 0; }
+    .qr-card { flex-direction: column; text-align: center; }
+    .support-line { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
-<img
-  src="./finalist-badge.jpeg"
-  alt="2026 Snowflake Community Awards Finalist — Open Source Impact APJ"
-  class="finalist-badge"
->
 
-<div class="container">
-<div class="card">
-
-<h1>❄️ Snowflake Community Awards 2026</h1>
-<h2>Open Source Impact — APJ</h2>
-
-<h2><strong>Satish Kumar | LTIMindtree, India</strong></h2>
-
-<p>I’m honored to be a finalist for the 2026 Snowflake Community Awards – Open Source Impact (APJ), recognizing my open-source work through Snowflake Chronicles.</p>
-
-<p><strong>🗳️ Scan the QR code to vote</strong></p>
-
-<img class="qr"
-src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https%3A%2F%2Ftinyurl.com%2Fvote4satish"
-alt="QR Code to vote for Satish">
-
-<a class="button vote" href="https://tinyurl.com/vote4satish" target="_blank">
-🗳️ Vote for Satish
-</a>
-
-<a class="button guide" href="https://tinyurl.com/how2vote4satish" target="_blank">
-🎥 1-Minute Guide: How to Vote
-</a>
-
-<div class="section">
-<h3>How to vote</h3>
-<p>👉 Go to <strong>Page 6 → Open Source Impact → APJ → Satish Kumar | LTIMindtree, India</strong></p>
-
-<p class="small">
-If the Google Form is blocked on your company network, please scan the QR code and vote using a personal device or mobile network.
-</p>
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="flake">❄️</span> Snowflake Chronicles</div>
+    <div class="deadline mono">Voting closes Sep&nbsp;15,&nbsp;2026</div>
+  </div>
 </div>
 
-<div class="section">
-<h3>📣 Support the nomination</h3>
-<p>
-You can also support my nomination by liking or sharing the post.
-</p>
-<a href="https://tinyurl.com/satishkumar-snowflake" target="_blank">
-Support the post
-</a>
-</div>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">❄️ Snowflake Community Awards 2026</div>
 
-<div class="section">
-<h3>Explore my work</h3>
+    <div class="badge-frame">
+      <img src="finalist-badge.jpeg" alt="2026 Snowflake Community Awards Finalist — Open Source Impact, APJ">
+    </div>
 
-<p>📚 <strong>Snowflake Chronicles</strong><br>
-<a href="https://medium.com/@snowflakechronicles" target="_blank">
-Medium — Practical Snowflake tutorials, architecture patterns and open-source projects
-</a></p>
+    <h1>Finalist for <span class="accent">Open Source Impact</span> — APJ</h1>
+    <p class="category">Snowflake Community Awards 2026</p>
+    <p class="who"><strong>Satish Kumar</strong> · LTIMindtree, India</p>
 
-<p>💻 <strong>GitHub</strong><br>
-<a href="https://github.com/satishkumarai/" target="_blank">
-Open-source Snowflake projects and frameworks
-</a></p>
+    <div class="cta-cluster">
+      <a class="btn btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote for Satish</a>
+      <a class="btn btn-linkedin" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </div>
+    <p class="cta-note">One vote takes under a minute · Connecting takes ten seconds</p>
+  </div>
+</header>
 
-<p>❄️ <strong>Snowflake Community Awards</strong><br>
-<a href="https://www.snowflake.com/en/community-awards/" target="_blank">
-Learn more about the awards
-</a></p>
-</div>
+<section id="how-to-vote">
+  <div class="wrap">
+    <div class="section-label"><span class="n">01</span> — How to vote</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">a</div>
+        <div class="flow-body">
+          <h3>Open the ballot</h3>
+          <p>Use the vote link above, or scan the QR code below.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">b</div>
+        <div class="flow-body">
+          <h3>Navigate to the category</h3>
+          <p>Go to Page 6 → Open Source Impact → APJ.</p>
+          <span class="path">Satish Kumar · LTIMindtree, India</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">c</div>
+        <div class="flow-body">
+          <h3>Submit your vote</h3>
+          <p>Confirm and submit — that's it.</p>
+        </div>
+      </div>
+    </div>
 
-<div class="footer">
-📅 Voting closes September 15, 2026.<br><br>
-Thank you so much for your support! ❤️❄️
-</div>
+    <a class="video-link" href="https://tinyurl.com/how2vote4satish" target="_blank" rel="noopener">
+      🎥 Watch the 1-minute how-to-vote video →
+    </a>
 
+    <div class="network-note">
+      ⚠️ If the Google Form is blocked on your company network, scan the QR code and vote using a personal device or mobile network.
+    </div>
 
-<div class="section">
-<h3>Disclaimer</h3>
-<p class="small">
-This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners.
-</p>
-</div>
-</div>
+    <div class="qr-card">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=0&data=https://tinyurl.com/vote4satish" alt="QR code to vote for Satish Kumar">
+      <div class="qr-text">
+        <p>Scan to vote directly</p>
+        <a class="mono" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <div class="section-label"><span class="n">02</span> — Connect</div>
+    <div class="connect-card">
+      <h2>Let's build the data community together</h2>
+      <p>I'd love to connect with fellow Snowflake practitioners, data engineers, architects, developers, AI professionals, and community members — and stay in touch as I keep sharing practical Snowflake, data, AI, and open-source content.</p>
+      <a class="btn btn-linkedin" style="max-width:320px; margin:0 auto;" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        linkedin.com/in/satishkumar-snowflake
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="support">
+  <div class="wrap">
+    <div class="section-label"><span class="n">03</span> — Support the nomination</div>
+    <p style="color: var(--ink-muted); font-size: 0.92rem;">You can also support by liking or sharing the announcement post.</p>
+    <div class="support-line">
+      <span>Support the post</span>
+      <a class="mono" href="https://tinyurl.com/satishkumar-snowflake" target="_blank" rel="noopener">tinyurl.com/satishkumar-snowflake →</a>
+    </div>
+    <p class="thanks">Every vote, connection, like, share, and message is genuinely appreciated. ❤️</p>
+  </div>
+</section>
+
+<section id="explore">
+  <div class="wrap">
+    <div class="section-label"><span class="n">04</span> — Explore the work</div>
+    <div class="explore-grid">
+      <a class="explore-card" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener">
+        <span class="ic">📚</span>
+        <h3>Snowflake Chronicles</h3>
+        <p>Practical tutorials, architecture patterns, and implementation guides.</p>
+      </a>
+      <a class="explore-card" href="https://github.com/satishkumarai/" target="_blank" rel="noopener">
+        <span class="ic">💻</span>
+        <h3>GitHub</h3>
+        <p>Open-source Snowflake projects and frameworks.</p>
+      </a>
+      <a class="explore-card" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener">
+        <span class="ic">❄️</span>
+        <h3>Community Awards</h3>
+        <p>Learn more about the awards and this year's finalists.</p>
+      </a>
+      <a class="explore-card" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
+        <span class="ic">🤝</span>
+        <h3>LinkedIn</h3>
+        <p>Follow along for ongoing Snowflake and data content.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners.
+    </div>
+    <div class="footer-brand">
+      <span class="name">Satish Kumar · Snowflake Chronicles</span>
+      <span>Thank you for your support ❤️❄️</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
