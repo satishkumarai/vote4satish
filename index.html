@@ -64,7 +64,7 @@
   }
   .topbar .wrap { display: flex; align-items: center; justify-content: space-between; }
   .brand { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--ink-muted); }
-  .brand .flake { color: var(--cyan); font-size: 1.1rem; }
+  .brand .flake { width: 22px; height: 22px; flex-shrink: 0; }
   .topbar .deadline { font-size: 0.78rem; color: var(--amber); }
 
   /* ---------- Hero ---------- */
@@ -76,14 +76,16 @@
     background: rgba(41,181,232,0.06);
     padding: 7px 16px; border-radius: 999px; margin-bottom: 28px;
   }
+  .eyebrow img { width: 16px; height: 16px; flex-shrink: 0; }
 
   .badge-frame {
-    width: 168px; height: 168px; margin: 0 auto 32px;
-    border-radius: 20px; overflow: hidden;
+    width: 208px; aspect-ratio: 480 / 600; margin: 0 auto 32px;
+    border-radius: 18px; overflow: hidden;
+    background: #fff;
     border: 1px solid var(--navy-line);
     box-shadow: 0 0 0 1px rgba(41,181,232,0.15), 0 30px 60px -25px rgba(41,181,232,0.35);
   }
-  .badge-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .badge-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
   .hero h1 {
     font-size: clamp(1.9rem, 4.6vw, 2.9rem);
@@ -190,7 +192,7 @@
     background: var(--navy-raised); border: 1px solid var(--navy-line);
     border-radius: 14px; padding: 22px; margin-top: 20px;
   }
-  .qr-card img { width: 96px; height: 96px; border-radius: 8px; background: #fff; padding: 6px; flex-shrink: 0; }
+  .qr-card img { width: 140px; aspect-ratio: 1 / 1; border-radius: 10px; background: #fff; padding: 10px; flex-shrink: 0; object-fit: contain; }
   .qr-card .qr-text p { font-size: 0.85rem; color: var(--ink-muted); }
   .qr-card .qr-text a { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
 
@@ -225,6 +227,15 @@
   }
   .explore-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
   .explore-card .ic { font-size: 1.3rem; margin-bottom: 10px; display: block; }
+  .explore-card .ic-chip {
+    width: 40px; height: 40px; margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px; background: #fff; padding: 7px;
+    box-shadow: 0 4px 10px -4px rgba(0,0,0,0.35);
+  }
+  .explore-card .ic-chip img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .explore-card .ic-chip.transparent { background: none; padding: 0; box-shadow: none; }
+  .explore-card .ic-chip.transparent img { width: 40px; height: 40px; border-radius: 10px; }
   .explore-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; color: #fff; font-weight: 600; margin-bottom: 4px; }
   .explore-card p { font-size: 0.8rem; color: var(--ink-faint); }
 
@@ -237,10 +248,14 @@
   .disclaimer strong { color: var(--ink-muted); }
   .footer-brand {
     display: flex; align-items: center; justify-content: space-between;
-    margin-top: 24px; flex-wrap: wrap; gap: 10px;
+    margin-top: 24px; flex-wrap: wrap; gap: 14px;
     font-size: 0.8rem; color: var(--ink-faint);
   }
-  .footer-brand .name { color: var(--ink-muted); }
+  .footer-brand .name { color: var(--ink-muted); font-weight: 500; }
+  .footer-id { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .footer-id .handle { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-faint); text-decoration: none; }
+  .footer-id .handle:hover { color: var(--cyan); }
+  .footer-id .handle img { width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; }
 
   @media (max-width: 480px) {
     .hero { padding: 48px 0 32px; }
@@ -254,17 +269,17 @@
 
 <div class="topbar">
   <div class="wrap">
-    <div class="brand"><span class="flake">❄️</span> Snowflake Chronicles</div>
+    <div class="brand"><img class="flake" src="snowflake-color.svg" alt="Snowflake"> Snowflake Chronicles</div>
     <div class="deadline mono">Voting closes Sep&nbsp;15,&nbsp;2026</div>
   </div>
 </div>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">❄️ Snowflake Community Awards 2026</div>
+    <div class="eyebrow"><img src="snowflake-color.svg" alt=""> Snowflake Community Awards 2026</div>
 
     <div class="badge-frame">
-      <img src="finalist-badge.jpeg" alt="2026 Snowflake Community Awards Finalist — Open Source Impact, APJ">
+      <img src="open_source_I_am_finalist_badge.jpeg" alt="2026 Snowflake Community Awards Finalist — Open Source Impact, APJ">
     </div>
 
     <h1>Finalist for <span class="accent">Open Source Impact</span> — APJ</h1>
@@ -273,12 +288,8 @@
 
     <div class="cta-cluster">
       <a class="btn btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote for Satish</a>
-      <a class="btn btn-linkedin" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-        Connect on LinkedIn
-      </a>
     </div>
-    <p class="cta-note">One vote takes under a minute · Connecting takes ten seconds</p>
+    <p class="cta-note">Takes under a minute · Page 6 → Open Source Impact → APJ</p>
   </div>
 </header>
 
@@ -319,7 +330,7 @@
     </div>
 
     <div class="qr-card">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=0&data=https://tinyurl.com/vote4satish" alt="QR code to vote for Satish Kumar">
+      <img src="qr-code.png" alt="QR code to vote for Satish Kumar" width="360" height="360">
       <div class="qr-text">
         <p>Scan to vote directly</p>
         <a class="mono" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a>
@@ -335,7 +346,7 @@
       <h2>Let's build the data community together</h2>
       <p>I'd love to connect with fellow Snowflake practitioners, data engineers, architects, developers, AI professionals, and community members — and stay in touch as I keep sharing practical Snowflake, data, AI, and open-source content.</p>
       <a class="btn btn-linkedin" style="max-width:320px; margin:0 auto;" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        <img src="icon-linkedin.png" alt="" width="22" height="19" style="border-radius:5px;">
         linkedin.com/in/satishkumar-snowflake
       </a>
     </div>
@@ -359,22 +370,22 @@
     <div class="section-label"><span class="n">04</span> — Explore the work</div>
     <div class="explore-grid">
       <a class="explore-card" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener">
-        <span class="ic">📚</span>
+        <span class="ic-chip"><img src="icon-medium.svg" alt=""></span>
         <h3>Snowflake Chronicles</h3>
         <p>Practical tutorials, architecture patterns, and implementation guides.</p>
       </a>
       <a class="explore-card" href="https://github.com/satishkumarai/" target="_blank" rel="noopener">
-        <span class="ic">💻</span>
+        <span class="ic-chip transparent"><img src="icon-github.png" alt=""></span>
         <h3>GitHub</h3>
         <p>Open-source Snowflake projects and frameworks.</p>
       </a>
       <a class="explore-card" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener">
-        <span class="ic">❄️</span>
+        <span class="ic-chip"><img src="snowflake-color.svg" alt=""></span>
         <h3>Community Awards</h3>
         <p>Learn more about the awards and this year's finalists.</p>
       </a>
       <a class="explore-card" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
-        <span class="ic">🤝</span>
+        <span class="ic-chip transparent"><img src="icon-linkedin.png" alt="" style="border-radius:8px;"></span>
         <h3>LinkedIn</h3>
         <p>Follow along for ongoing Snowflake and data content.</p>
       </a>
@@ -388,8 +399,15 @@
       <strong>Disclaimer:</strong> This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners.
     </div>
     <div class="footer-brand">
-      <span class="name">Satish Kumar · Snowflake Chronicles</span>
-      <span>Thank you for your support ❤️❄️</span>
+      <span class="name">Satish Kumar</span>
+      <div class="footer-id">
+        <a class="handle" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
+          <img src="icon-linkedin.png" alt="" style="border-radius:3px;"> @satishkumar-snowflake
+        </a>
+        <a class="handle" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener">
+          <img src="icon-medium.svg" alt=""> @snowflakechronicles
+        </a>
+      </div>
     </div>
   </div>
 </footer>
