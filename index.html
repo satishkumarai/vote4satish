@@ -79,13 +79,25 @@
   .eyebrow img { width: 16px; height: 16px; flex-shrink: 0; }
 
   .badge-frame {
-    width: 208px; aspect-ratio: 480 / 600; margin: 0 auto 32px;
-    border-radius: 18px; overflow: hidden;
+    width: 244px; aspect-ratio: 480 / 600; margin: 0 auto 28px;
+    border-radius: 20px; overflow: hidden;
     background: #fff;
     border: 1px solid var(--navy-line);
     box-shadow: 0 0 0 1px rgba(41,181,232,0.15), 0 30px 60px -25px rgba(41,181,232,0.35);
   }
   .badge-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+  .proof-shot {
+    max-width: 460px; margin: 0 auto 12px;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--navy-line);
+    box-shadow: 0 20px 44px -22px rgba(0,0,0,0.55);
+  }
+  .proof-shot img { width: 100%; height: auto; display: block; }
+  .proof-caption {
+    font-size: 0.72rem; color: var(--ink-faint); text-align: center;
+    margin: 0 auto 34px; max-width: 460px;
+  }
 
   .hero h1 {
     font-size: clamp(1.9rem, 4.6vw, 2.9rem);
@@ -141,7 +153,22 @@
   }
   .btn-ghost:hover { color: var(--ink); border-color: var(--ink-faint); }
 
-  .cta-note { font-size: 0.78rem; color: var(--ink-faint); margin-top: 4px; text-align: center; }
+  .cta-note {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.88rem; font-weight: 600; color: var(--amber);
+    background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.35);
+    padding: 9px 18px; border-radius: 999px;
+    margin: 10px auto 0; text-align: center;
+  }
+
+  .hero-qr {
+    display: inline-flex; align-items: center; gap: 18px; text-align: left;
+    background: var(--navy-raised); border: 1px solid var(--navy-line);
+    border-radius: 16px; padding: 18px 24px; margin-top: 30px;
+  }
+  .hero-qr img { width: 156px; aspect-ratio: 1/1; border-radius: 12px; background: #fff; padding: 10px; flex-shrink: 0; object-fit: contain; }
+  .hero-qr .hq-text p { font-size: 0.9rem; color: var(--ink-muted); margin-bottom: 4px; }
+  .hero-qr .hq-text a.mono { font-size: 0.92rem; font-weight: 600; }
 
   /* ---------- Section shell ---------- */
   section { padding: 52px 0; border-top: 1px solid var(--navy-line); }
@@ -173,11 +200,12 @@
   }
 
   .video-link {
-    display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex; align-items: center; gap: 10px;
     margin-top: 22px; font-size: 0.9rem; color: var(--ink);
     text-decoration: none; border-bottom: 1px dashed var(--ink-faint);
     padding-bottom: 2px;
   }
+  .video-link img { flex-shrink: 0; }
   .video-link:hover { border-color: var(--cyan); color: var(--cyan); }
 
   .network-note {
@@ -185,16 +213,6 @@
     background: var(--navy-raised); border: 1px solid var(--navy-line);
     border-radius: 10px; padding: 14px 16px;
   }
-
-  /* ---------- QR ---------- */
-  .qr-card {
-    display: flex; align-items: center; gap: 22px;
-    background: var(--navy-raised); border: 1px solid var(--navy-line);
-    border-radius: 14px; padding: 22px; margin-top: 20px;
-  }
-  .qr-card img { width: 140px; aspect-ratio: 1 / 1; border-radius: 10px; background: #fff; padding: 10px; flex-shrink: 0; object-fit: contain; }
-  .qr-card .qr-text p { font-size: 0.85rem; color: var(--ink-muted); }
-  .qr-card .qr-text a { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
 
   /* ---------- Connect (LinkedIn) ---------- */
   .connect-card {
@@ -255,12 +273,12 @@
   .footer-id { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
   .footer-id .handle { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-faint); text-decoration: none; }
   .footer-id .handle:hover { color: var(--cyan); }
-  .footer-id .handle img { width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; }
+  .footer-id .handle img { width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; object-fit: contain; }
 
   @media (max-width: 480px) {
     .hero { padding: 48px 0 32px; }
     section { padding: 40px 0; }
-    .qr-card { flex-direction: column; text-align: center; }
+    .hero-qr { flex-direction: column; text-align: center; }
     .support-line { flex-direction: column; align-items: flex-start; }
   }
 </style>
@@ -286,10 +304,23 @@
     <p class="category">Snowflake Community Awards 2026</p>
     <p class="who"><strong>Satish Kumar</strong> · LTIMindtree, India</p>
 
+    <div class="proof-shot">
+      <img src="proof-snowflake-finalist.jpg" alt="Satish Kumar listed as an Open Source Impact APJ finalist on the official Snowflake Community Awards finalists page">
+    </div>
+    <p class="proof-caption">As listed on the official Snowflake Community Awards finalists page</p>
+
     <div class="cta-cluster">
       <a class="btn btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote for Satish</a>
     </div>
-    <p class="cta-note">Takes under a minute · Page 6 → Open Source Impact → APJ</p>
+    <p class="cta-note">⚡ Takes under a minute · Page 6 → Open Source Impact → APJ</p>
+
+    <div class="hero-qr">
+      <img src="qr-code.png" alt="QR code to vote for Satish Kumar" width="360" height="360">
+      <div class="hq-text">
+        <p>Scan to vote directly</p>
+        <a class="mono" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -301,7 +332,7 @@
         <div class="flow-num">a</div>
         <div class="flow-body">
           <h3>Open the ballot</h3>
-          <p>Use the vote link above, or scan the QR code below.</p>
+          <p>Use the vote link above, or scan the QR code at the top of this page.</p>
         </div>
       </div>
       <div class="flow-step">
@@ -322,19 +353,12 @@
     </div>
 
     <a class="video-link" href="https://tinyurl.com/how2vote4satish" target="_blank" rel="noopener">
-      🎥 Watch the 1-minute how-to-vote video →
+      <img src="icon-youtube.png" alt="" width="20" height="14">
+      Watch the 1-minute how-to-vote video →
     </a>
 
     <div class="network-note">
-      ⚠️ If the Google Form is blocked on your company network, scan the QR code and vote using a personal device or mobile network.
-    </div>
-
-    <div class="qr-card">
-      <img src="qr-code.png" alt="QR code to vote for Satish Kumar" width="360" height="360">
-      <div class="qr-text">
-        <p>Scan to vote directly</p>
-        <a class="mono" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a>
-      </div>
+      ⚠️ If the Google Form is blocked on your company network, scan the QR code above and vote using a personal device or mobile network.
     </div>
   </div>
 </section>
@@ -406,6 +430,12 @@
         </a>
         <a class="handle" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener">
           <img src="icon-medium.svg" alt=""> @snowflakechronicles
+        </a>
+        <a class="handle" href="https://github.com/satishkumarai" target="_blank" rel="noopener">
+          <img src="icon-github.png" alt="" style="border-radius:50%;"> @satishkumarai
+        </a>
+        <a class="handle" href="https://www.youtube.com/@snowflakechronicless" target="_blank" rel="noopener">
+          <img src="icon-youtube.png" alt=""> @snowflakechronicless
         </a>
       </div>
     </div>
