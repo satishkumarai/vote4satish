@@ -119,8 +119,10 @@
     background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.28);
     padding: 7px 13px; text-decoration: none; margin-bottom: 20px;
     transition: border-color .15s ease;
+    animation: verifyGlow 3.2s ease-in-out infinite;
   }
   .credibility:hover { border-color: #7DD8A8; }
+  @keyframes verifyGlow { 0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); } 50% { box-shadow: 0 0 0 5px rgba(74,222,128,0.1); } }
 
   .stat-row {
     display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
@@ -249,6 +251,27 @@
   .disclaimer { font-size: 0.84rem; line-height: 1.7; color: var(--ink-muted); max-width: 560px; }
   .disclaimer strong { color: var(--paper); }
 
+  /* ---------- Sticky vote bar ---------- */
+  .sticky-vote {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--raised); border-top: 1px solid var(--line);
+    box-shadow: 0 -14px 32px rgba(0,0,0,0.45);
+    padding: 12px 0; transform: translateY(100%); transition: transform .3s ease;
+  }
+  .sticky-vote.visible { transform: translateY(0); }
+  .sticky-vote-inner { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .sv-label { font-size: 0.88rem; color: var(--ink-muted); white-space: nowrap; }
+  .sv-btn {
+    display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
+    padding: 12px 22px; background: linear-gradient(135deg, var(--cyan), var(--cyan-deep));
+    color: var(--void); text-decoration: none; font-family: 'Unbounded', sans-serif;
+    font-size: 0.92rem; font-weight: 600;
+  }
+  @media (max-width: 480px) {
+    .sv-label { display: none; }
+    .sv-btn { width: 100%; justify-content: center; }
+  }
+
   @media (max-width: 480px) {
     .hero { padding: 44px 0 32px; }
     .ballot { padding: 24px 20px; }
@@ -360,7 +383,7 @@
         <span class="arrow">→</span>
       </a>
       <a class="follow-link" href="https://github.com/satishkumarai/" target="_blank" rel="noopener">
-        <span class="fi transparent"><img src="icon-github.png" alt=""></span>
+        <span class="fi"><img src="icon-github.png" alt=""></span>
         <span class="ft"><span class="fname">GitHub</span><br><span class="fdesc">Open-source projects &amp; frameworks</span></span>
         <span class="arrow">→</span>
       </a>
@@ -384,6 +407,13 @@
   </div>
 </footer>
 
+<div class="sticky-vote" id="stickyVote">
+  <div class="wrap sticky-vote-inner">
+    <span class="sv-label">Open Source Impact · APJ — Satish Kumar</span>
+    <a class="sv-btn" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote Now →</a>
+  </div>
+</div>
+
 <script>
   (function () {
     var el = document.getElementById('countdown-text');
@@ -397,6 +427,21 @@
     }
     render();
     setInterval(render, 60000);
+  })();
+
+  (function () {
+    var bar = document.getElementById('stickyVote');
+    var heroBtn = document.querySelector('.ballot .btn-vote');
+    var footerEl = document.querySelector('footer');
+    if (!bar || !heroBtn || !footerEl || !('IntersectionObserver' in window)) return;
+    var heroVisible = true, footerVisible = false;
+    function update() { bar.classList.toggle('visible', !heroVisible && !footerVisible); }
+    new IntersectionObserver(function (entries) {
+      heroVisible = entries[0].isIntersecting; update();
+    }, { threshold: 0 }).observe(heroBtn);
+    new IntersectionObserver(function (entries) {
+      footerVisible = entries[0].isIntersecting; update();
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' }).observe(footerEl);
   })();
 </script>
 
