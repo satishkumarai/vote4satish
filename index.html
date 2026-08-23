@@ -106,10 +106,28 @@
     font-weight: 700; line-height: 1.08; color: #fff;
     margin-bottom: 18px;
   }
-  h1.headline .line2 { color: var(--cyan); display: block; }
+  h1.headline .line2 { color: var(--cyan); }
 
   .who { font-size: 0.98rem; color: var(--ink-muted); margin-bottom: 4px; }
   .who strong { color: var(--paper); font-weight: 600; }
+
+  .pitch { font-size: 0.95rem; color: var(--ink-muted); max-width: 440px; margin: 14px auto 16px; line-height: 1.65; }
+
+  .credibility {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: #7DD8A8;
+    background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.28);
+    padding: 6px 12px; text-decoration: none; margin-bottom: 20px;
+    transition: border-color .15s ease;
+  }
+  .credibility:hover { border-color: #7DD8A8; }
+
+  .stat-row {
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+    gap: 8px 0; font-size: 0.84rem; color: var(--ink-muted); margin-bottom: 22px;
+  }
+  .stat-row .stat strong { color: var(--paper); font-weight: 700; }
+  .stat-row .sep { color: var(--line); margin: 0 12px; }
 
   .awards-link {
     display: inline-block; font-size: 0.84rem; color: var(--ink-faint);
@@ -133,6 +151,10 @@
     box-shadow: 0 40px 80px -40px rgba(0,0,0,0.6);
     padding: 30px 28px;
     display: flex; flex-direction: column; gap: 24px;
+  }
+  .ballot-lead {
+    font-family: 'Unbounded', sans-serif; font-size: 1rem; font-weight: 600;
+    color: #fff; text-align: center;
   }
   .ballot-top { display: flex; gap: 22px; align-items: center; }
   .ballot-qr {
@@ -175,6 +197,10 @@
   }
   .btn-vote:hover { transform: translateY(-2px); box-shadow: 0 22px 44px -16px rgba(41,181,232,0.75); }
   .btn-vote:active { transform: translateY(0); }
+  .ballot-path-inline {
+    text-align: center; font-size: 0.76rem; color: var(--ink-faint);
+    margin-top: -8px;
+  }
 
   .ballot-note {
     text-align: center; font-size: 0.78rem; color: var(--ink-faint);
@@ -257,24 +283,35 @@
       <img src="open_source_I_am_finalist_badge.jpeg" alt="2026 Snowflake Community Awards Finalist — Open Source Impact, APJ">
     </div>
 
-    <h1 class="headline stage-in d3">Open Source Impact.<span class="line2">APJ Finalist.</span></h1>
+    <h1 class="headline stage-in d3">Open Source Impact <span class="line2">· APJ Finalist</span></h1>
 
     <p class="who stage-in d4"><strong>Satish Kumar</strong> · LTIMindtree, India</p>
+    <p class="pitch stage-in d4">Sharing practical Snowflake knowledge, open-source projects, and learning resources with the community.</p>
+
+    <a class="credibility stage-in d4" href="#verified">✓ Officially listed on Snowflake.com</a>
+
+    <div class="stat-row stage-in d4">
+      <span class="stat"><strong>150+</strong> Technical Articles</span>
+      <span class="sep">·</span>
+      <span class="stat"><strong>10K+</strong> LinkedIn Community</span>
+    </div>
+
     <a class="awards-link stage-in d4" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener">Learn more about the Community Awards and this year's finalists →</a>
   </div>
 </header>
 
-<section class="ballot-section">
+<section class="ballot-section" id="how-to-vote">
   <div class="wrap">
-    <div class="section-eyebrow stage-in d5">Your ballot</div>
+    <div class="section-eyebrow stage-in d5">How to vote</div>
 
     <div class="ballot facet stage-in d5">
+      <p class="ballot-lead">Vote in less than a minute</p>
       <div class="ballot-top">
         <div class="ballot-qr facet-sm">
           <img src="qr-code.png" alt="QR code to vote for Satish Kumar">
         </div>
         <div class="ballot-scan">
-          <p>Scan to vote directly, or use the button below.</p>
+          <p>📱 Scan the QR code, or 🗳️ tap "Vote Now" below.</p>
           <a class="mono" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a>
         </div>
       </div>
@@ -294,7 +331,8 @@
         </div>
       </div>
 
-      <a class="btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">Vote for Satish →</a>
+      <a class="btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote Now →</a>
+      <p class="ballot-path-inline mono">Page 6 → Open Source Impact → APJ → Satish Kumar · LTIMindtree, India</p>
 
       <p class="ballot-note">
         <strong>Blocked on your work network?</strong> Scan the QR code above from a personal device or mobile network.
@@ -304,7 +342,7 @@
   </div>
 </section>
 
-<section class="proof-section">
+<section class="proof-section" id="verified">
   <div class="wrap">
     <div class="section-eyebrow stage-in d6">Verified</div>
     <div class="proof-card stage-in d6">
@@ -319,7 +357,7 @@
 
 <section class="follow-section">
   <div class="wrap">
-    <div class="section-eyebrow">Follow the work</div>
+    <div class="section-eyebrow">Explore my work</div>
     <div class="follow-row">
       <a class="follow-link primary" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
         <span class="fi transparent"><img src="icon-linkedin.png" alt=""></span>
@@ -343,8 +381,8 @@
       </a>
     </div>
 
-    <p class="support-line">Support the nomination — <a class="nowrap" href="https://tinyurl.com/satishkumar-snowflake" target="_blank" rel="noopener">like or share the post →</a></p>
-    <p class="thanks">Every vote, connection, like, share, and message is genuinely appreciated. ❤️</p>
+    <p class="support-line">If my work has helped you learn, build, or explore Snowflake, I'd truly appreciate your <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">vote</a> or a <a class="nowrap" href="https://tinyurl.com/satishkumar-snowflake" target="_blank" rel="noopener">share</a>. 🙏</p>
+    <p class="thanks">Thank you for supporting the Snowflake community! ❤️</p>
   </div>
 </section>
 
