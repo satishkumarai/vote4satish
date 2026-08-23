@@ -72,11 +72,11 @@
   /* ---------- Topbar ---------- */
   .topbar { border-bottom: 1px solid var(--line-soft); padding: 16px 0; }
   .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .brand { display: flex; align-items: center; gap: 9px; font-size: 0.88rem; color: var(--ink-muted); font-weight: 500; }
+  .brand { display: flex; align-items: center; gap: 9px; font-size: 0.94rem; color: var(--ink-muted); font-weight: 500; }
   .brand img { width: 19px; height: 19px; }
   .countdown {
     display: inline-flex; align-items: center; gap: 7px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 500;
     color: var(--amber); background: rgba(245,158,11,0.08);
     border: 1px solid rgba(245,158,11,0.3);
     padding: 6px 12px 6px 10px;
@@ -89,7 +89,7 @@
   .hero { padding: 56px 0 40px; text-align: center; }
   .eyebrow {
     display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.16em;
+    font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.14em;
     color: var(--cyan); margin-bottom: 22px;
   }
   .eyebrow::before { content: '◆ '; color: var(--amber); }
@@ -108,29 +108,29 @@
   }
   h1.headline .line2 { color: var(--cyan); }
 
-  .who { font-size: 0.98rem; color: var(--ink-muted); margin-bottom: 4px; }
+  .who { font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 4px; }
   .who strong { color: var(--paper); font-weight: 600; }
 
-  .pitch { font-size: 0.95rem; color: var(--ink-muted); max-width: 440px; margin: 14px auto 16px; line-height: 1.65; }
+  .pitch { font-size: 1.02rem; color: var(--ink-muted); max-width: 440px; margin: 14px auto 16px; line-height: 1.65; }
 
   .credibility {
     display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: #7DD8A8;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: #7DD8A8;
     background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.28);
-    padding: 6px 12px; text-decoration: none; margin-bottom: 20px;
+    padding: 7px 13px; text-decoration: none; margin-bottom: 20px;
     transition: border-color .15s ease;
   }
   .credibility:hover { border-color: #7DD8A8; }
 
   .stat-row {
     display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-    gap: 8px 0; font-size: 0.84rem; color: var(--ink-muted); margin-bottom: 22px;
+    gap: 8px 0; font-size: 0.92rem; color: var(--ink-muted); margin-bottom: 22px;
   }
   .stat-row .stat strong { color: var(--paper); font-weight: 700; }
   .stat-row .sep { color: var(--line); margin: 0 12px; }
 
   .awards-link {
-    display: inline-block; font-size: 0.84rem; color: var(--ink-faint);
+    display: inline-block; font-size: 0.9rem; color: var(--ink-faint);
     text-decoration: none; border-bottom: 1px dashed var(--line);
     padding-bottom: 2px; margin-top: 10px; transition: color .15s ease, border-color .15s ease;
   }
@@ -139,8 +139,8 @@
   /* ---------- The Ballot (signature panel) ---------- */
   .ballot-section { padding: 8px 0 52px; }
   .section-eyebrow {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
-    text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint);
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint);
     margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
   }
   .section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
@@ -153,7 +153,7 @@
     display: flex; flex-direction: column; gap: 24px;
   }
   .ballot-lead {
-    font-family: 'Unbounded', sans-serif; font-size: 1rem; font-weight: 600;
+    font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 600;
     color: #fff; text-align: center;
   }
   .ballot-top { display: flex; gap: 22px; align-items: center; }
@@ -163,49 +163,41 @@
     display: flex; align-items: center; justify-content: center;
   }
   .ballot-qr img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .ballot-scan p { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 6px; }
-  .ballot-scan .mono { font-size: 0.92rem; font-weight: 600; color: var(--cyan); text-decoration: none; }
+  .ballot-scan p { font-size: 0.98rem; color: var(--paper); line-height: 1.5; }
 
   .ballot-path {
     display: flex; flex-direction: column; gap: 0;
     border-top: 1px solid var(--line-soft); padding-top: 20px;
   }
-  .path-step { display: flex; gap: 14px; align-items: flex-start; padding: 9px 0; }
+  .path-step { display: flex; gap: 14px; align-items: flex-start; padding: 10px 0; }
   .path-step .pk {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; color: var(--void);
-    background: var(--cyan); width: 22px; height: 22px; flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; color: var(--void);
+    background: var(--cyan); width: 24px; height: 24px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center; font-weight: 600;
     margin-top: 1px;
   }
-  .path-step p { font-size: 0.9rem; color: var(--paper); }
-  .path-step .sub { display: block; font-size: 0.8rem; color: var(--ink-faint); margin-top: 2px; }
+  .path-step p { font-size: 1rem; color: var(--paper); }
+  .path-step .sub { display: block; font-size: 0.88rem; color: var(--ink-muted); margin-top: 3px; }
   .path-step.final .pk { background: var(--amber); }
   .path-step.final { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.28); margin: 2px -14px 0; padding: 12px 14px; }
-  .path-step.final .vote-link {
-    font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--amber);
-    text-decoration: none; border-bottom: 1px solid rgba(245,158,11,0.5);
-  }
+  .path-step.final p { font-weight: 600; }
 
   .btn-vote {
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    width: 100%; padding: 18px 24px;
+    width: 100%; padding: 19px 24px;
     background: linear-gradient(135deg, var(--cyan), var(--cyan-deep));
     color: var(--void); text-decoration: none;
-    font-family: 'Unbounded', sans-serif; font-size: 1rem; font-weight: 600;
+    font-family: 'Unbounded', sans-serif; font-size: 1.08rem; font-weight: 600;
     box-shadow: 0 18px 36px -16px rgba(41,181,232,0.6);
     transition: transform .15s ease, box-shadow .15s ease;
   }
   .btn-vote:hover { transform: translateY(-2px); box-shadow: 0 22px 44px -16px rgba(41,181,232,0.75); }
   .btn-vote:active { transform: translateY(0); }
-  .ballot-path-inline {
-    text-align: center; font-size: 0.76rem; color: var(--ink-faint);
-    margin-top: -8px;
-  }
 
   .ballot-note {
-    text-align: center; font-size: 0.78rem; color: var(--ink-faint);
+    text-align: center; font-size: 0.88rem; color: var(--ink-muted);
   }
-  .ballot-note strong { color: var(--ink-muted); font-weight: 500; }
+  .ballot-note strong { color: var(--paper); font-weight: 600; }
 
   /* ---------- Verified proof ---------- */
   .proof-section { padding: 0 0 52px; }
@@ -218,11 +210,11 @@
   .proof-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .proof-meta .tag {
     display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: #7DD8A8;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: #7DD8A8;
     background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.28);
-    padding: 5px 10px;
+    padding: 6px 11px;
   }
-  .proof-meta a { font-size: 0.82rem; text-decoration: none; border-bottom: 1px dashed transparent; }
+  .proof-meta a { font-size: 0.9rem; text-decoration: none; border-bottom: 1px dashed transparent; }
   .proof-meta a:hover { border-color: var(--cyan); }
 
   /* ---------- Follow ---------- */
@@ -240,22 +232,22 @@
   .follow-link .fi.transparent { background: none; padding: 0; }
   .follow-link .fi.transparent img { border-radius: 6px; }
   .follow-link .ft { flex: 1; min-width: 0; }
-  .follow-link .ft .fname { font-size: 0.92rem; color: var(--paper); font-weight: 600; }
-  .follow-link .ft .fdesc { font-size: 0.8rem; color: var(--ink-faint); }
-  .follow-link .arrow { color: var(--ink-faint); font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; }
+  .follow-link .ft .fname { font-size: 1rem; color: var(--paper); font-weight: 600; }
+  .follow-link .ft .fdesc { font-size: 0.88rem; color: var(--ink-muted); }
+  .follow-link .arrow { color: var(--ink-faint); font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; }
   .follow-link:hover .arrow { color: var(--cyan); }
   .follow-link.primary { border-color: rgba(41,181,232,0.35); background: rgba(41,181,232,0.05); }
 
   .support-line {
-    margin-top: 18px; text-align: center; font-size: 0.85rem; color: var(--ink-muted);
+    margin-top: 18px; text-align: center; font-size: 0.94rem; color: var(--ink-muted);
   }
   .support-line a { font-family: 'IBM Plex Mono', monospace; font-weight: 600; }
-  .thanks { text-align: center; font-size: 0.85rem; color: var(--ink-faint); margin-top: 10px; }
+  .thanks { text-align: center; font-size: 0.94rem; color: var(--ink-muted); margin-top: 10px; }
 
   /* ---------- Footer ---------- */
   footer { padding: 36px 0 56px; border-top: 1px solid var(--line-soft); }
-  .disclaimer { font-size: 0.76rem; line-height: 1.7; color: var(--ink-faint); max-width: 560px; }
-  .disclaimer strong { color: var(--ink-muted); }
+  .disclaimer { font-size: 0.84rem; line-height: 1.7; color: var(--ink-muted); max-width: 560px; }
+  .disclaimer strong { color: var(--paper); }
 
   @media (max-width: 480px) {
     .hero { padding: 44px 0 32px; }
@@ -311,15 +303,16 @@
           <img src="qr-code.png" alt="QR code to vote for Satish Kumar">
         </div>
         <div class="ballot-scan">
-          <p>📱 Scan the QR code, or 🗳️ tap "Vote Now" below.</p>
-          <a class="mono" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a>
+          <p>📱 Scan the QR code, or tap the button below.</p>
         </div>
       </div>
+
+      <a class="btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote Now →</a>
 
       <div class="ballot-path">
         <div class="path-step">
           <span class="pk">1</span>
-          <p>Open the ballot<span class="sub">Scan the code above, or tap Vote below.</span></p>
+          <p>Open the ballot<span class="sub">Scan the code above, or tap Vote Now.</span></p>
         </div>
         <div class="path-step">
           <span class="pk">2</span>
@@ -327,12 +320,9 @@
         </div>
         <div class="path-step final">
           <span class="pk">✓</span>
-          <p>Confirm and submit — that's it.<span class="sub"><a class="vote-link" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">tinyurl.com/vote4satish</a></span></p>
+          <p>Confirm and submit — that's it.</p>
         </div>
       </div>
-
-      <a class="btn-vote" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">🗳️ Vote Now →</a>
-      <p class="ballot-path-inline mono">Page 6 → Open Source Impact → APJ → Satish Kumar · LTIMindtree, India</p>
 
       <p class="ballot-note">
         <strong>Blocked on your work network?</strong> Scan the QR code above from a personal device or mobile network.
