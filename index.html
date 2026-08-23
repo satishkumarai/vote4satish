@@ -83,6 +83,30 @@
   }
   .countdown { white-space: nowrap; }
   .countdown .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); animation: pulse 2s ease-in-out infinite; }
+
+  /* ---------- Live clock tiles ---------- */
+  .clock-wrap { display: flex; justify-content: center; margin: 24px 0 30px; }
+  .clock { display: flex; align-items: center; gap: 8px; }
+  .clock-unit { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .clock-digits { display: flex; gap: 3px; }
+  .clock-digit {
+    width: 30px; height: 42px;
+    background: var(--raised); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600;
+    font-size: 1.4rem; color: #fff;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.25);
+  }
+  .clock-unit .clock-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint);
+  }
+  .clock-sep { color: var(--line); font-size: 1.2rem; font-weight: 600; align-self: flex-start; margin-top: 8px; }
+  @media (max-width: 420px) {
+    .clock { gap: 4px; }
+    .clock-digit { width: 24px; height: 34px; font-size: 1.1rem; }
+    .clock-sep { font-size: 0.95rem; margin-top: 10px; }
+  }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
 
   /* ---------- Hero ---------- */
@@ -319,6 +343,30 @@
   <div class="wrap">
     <div class="section-eyebrow stage-in d5">How to vote</div>
 
+    <div class="clock-wrap stage-in d5">
+      <div class="clock" id="liveClock">
+        <div class="clock-unit">
+          <div class="clock-digits"><span class="clock-digit" id="cd-d1">0</span><span class="clock-digit" id="cd-d2">0</span></div>
+          <span class="clock-label">Days</span>
+        </div>
+        <span class="clock-sep">:</span>
+        <div class="clock-unit">
+          <div class="clock-digits"><span class="clock-digit" id="cd-h1">0</span><span class="clock-digit" id="cd-h2">0</span></div>
+          <span class="clock-label">Hours</span>
+        </div>
+        <span class="clock-sep">:</span>
+        <div class="clock-unit">
+          <div class="clock-digits"><span class="clock-digit" id="cd-m1">0</span><span class="clock-digit" id="cd-m2">0</span></div>
+          <span class="clock-label">Min</span>
+        </div>
+        <span class="clock-sep">:</span>
+        <div class="clock-unit">
+          <div class="clock-digits"><span class="clock-digit" id="cd-s1">0</span><span class="clock-digit" id="cd-s2">0</span></div>
+          <span class="clock-label">Sec</span>
+        </div>
+      </div>
+    </div>
+
     <div class="ballot facet stage-in d5">
       <p class="ballot-lead">Vote in less than a minute</p>
       <div class="ballot-top">
@@ -416,17 +464,47 @@
 
 <script>
   (function () {
-    var el = document.getElementById('countdown-text');
+    var topbarText = document.getElementById('countdown-text');
     var deadline = new Date('2026-09-15T23:59:59+05:30').getTime();
+
+    var digitIds = {
+      d1: document.getElementById('cd-d1'), d2: document.getElementById('cd-d2'),
+      h1: document.getElementById('cd-h1'), h2: document.getElementById('cd-h2'),
+      m1: document.getElementById('cd-m1'), m2: document.getElementById('cd-m2'),
+      s1: document.getElementById('cd-s1'), s2: document.getElementById('cd-s2')
+    };
+
+    function pad2(n) { n = Math.max(0, n); return n < 10 ? '0' + n : '' + n; }
+
     function render() {
       var now = Date.now();
       var diff = deadline - now;
-      if (diff <= 0) { el.textContent = 'Voting has closed'; return; }
-      var days = Math.ceil(diff / 86400000);
-      el.textContent = days === 1 ? 'Last day to vote' : days + ' days left to vote';
+
+      if (diff <= 0) {
+        if (topbarText) topbarText.textContent = 'Voting has closed';
+        Object.keys(digitIds).forEach(function (k) { if (digitIds[k]) digitIds[k].textContent = '0'; });
+        return;
+      }
+
+      var totalSec = Math.floor(diff / 1000);
+      var days = Math.floor(totalSec / 86400);
+      var hours = Math.floor((totalSec % 86400) / 3600);
+      var mins = Math.floor((totalSec % 3600) / 60);
+      var secs = totalSec % 60;
+
+      if (topbarText) {
+        topbarText.textContent = days === 0 ? 'Last day to vote' : days + 'd ' + hours + 'h left to vote';
+      }
+
+      var dd = pad2(days), hh = pad2(hours), mm = pad2(mins), ss = pad2(secs);
+      if (digitIds.d1) { digitIds.d1.textContent = dd[0]; digitIds.d2.textContent = dd[1]; }
+      if (digitIds.h1) { digitIds.h1.textContent = hh[0]; digitIds.h2.textContent = hh[1]; }
+      if (digitIds.m1) { digitIds.m1.textContent = mm[0]; digitIds.m2.textContent = mm[1]; }
+      if (digitIds.s1) { digitIds.s1.textContent = ss[0]; digitIds.s2.textContent = ss[1]; }
     }
+
     render();
-    setInterval(render, 60000);
+    setInterval(render, 1000);
   })();
 
   (function () {
