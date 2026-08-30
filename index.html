@@ -445,7 +445,7 @@
 (function () {
   var NAMESPACE = 'vote4satish-2026-satishkumarai';
   var KEY = 'visits';
-  fetch('https://countapi.mileshilliard.com/api/v1/hit/' + NAMESPACE + '/' + KEY)
+  fetch('https://countapi.mileshilliard.com/api/v1/hit/' + NAMESPACE + '_' + KEY)
     .then(function (r) { return r.json(); })
     .then(function (data) {
       var params = new URLSearchParams(window.location.search);
