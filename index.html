@@ -440,26 +440,43 @@
   })();
 </script>
 
-<!-- Secret visit counter — invisible unless ?stats=sk2026 is added to the URL -->
+<!-- Secret visit counter — counts each device once, invisible unless ?stats=sk2026 is in the URL -->
 <script>
 (function () {
-  var NAMESPACE = 'vote4satish-2026-satishkumarai';
-  var KEY = 'visits';
-  fetch('https://countapi.mileshilliard.com/api/v1/hit/' + NAMESPACE + '_' + KEY)
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      var params = new URLSearchParams(window.location.search);
-      if (params.get('stats') === 'sk2026') {
-        var badge = document.createElement('div');
-        badge.textContent = '\ud83d\udc41\ufe0f Visits: ' + data.value;
-        badge.style.cssText =
-          'position:fixed;bottom:12px;right:12px;background:#111;color:#0f0;' +
-          'padding:8px 14px;border-radius:8px;font-family:monospace;' +
-          'font-size:14px;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,.3);';
-        document.body.appendChild(badge);
-      }
-    })
-    .catch(function () { /* fails silently */ });
+  var KEY = 'vote4satish2026satishkumarai_visits';
+  var BASE = 'https://countapi.mileshilliard.com/api/v1';
+  var STORAGE_FLAG = 'v4s_counted';
+
+  function showBadgeIfRequested(value) {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('stats') === 'sk2026') {
+      var badge = document.createElement('div');
+      badge.textContent = '\ud83d\udc41\ufe0f Visits: ' + value;
+      badge.style.cssText =
+        'position:fixed;bottom:12px;right:12px;background:#111;color:#0f0;' +
+        'padding:8px 14px;border-radius:8px;font-family:monospace;' +
+        'font-size:14px;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,.3);';
+      document.body.appendChild(badge);
+    }
+  }
+
+  var alreadyCounted = false;
+  try { alreadyCounted = window.localStorage.getItem(STORAGE_FLAG) === '1'; } catch (e) {}
+
+  if (alreadyCounted) {
+    fetch(BASE + '/get/' + KEY)
+      .then(function (r) { return r.json(); })
+      .then(function (data) { showBadgeIfRequested(data.value); })
+      .catch(function () {});
+  } else {
+    fetch(BASE + '/hit/' + KEY)
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        try { window.localStorage.setItem(STORAGE_FLAG, '1'); } catch (e) {}
+        showBadgeIfRequested(data.value);
+      })
+      .catch(function () {});
+  }
 })();
 </script>
 </body>
