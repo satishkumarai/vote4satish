@@ -201,6 +201,47 @@
     h1{font-size:30px;}
     .mid-row{gap:28px;}
   }
+
+  /* ---------- CUSTOM TOOLTIPS ---------- */
+  .tooltip-trigger{position:relative;}
+  .tooltip-trigger::after{
+    content:attr(data-tooltip);
+    position:absolute;
+    bottom:calc(100% + 10px);
+    left:50%;
+    transform:translateX(-50%) translateY(4px);
+    background:var(--ink);
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    padding:7px 12px;
+    border-radius:8px;
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.15s ease, transform 0.15s ease;
+    box-shadow:0 8px 20px rgba(11,37,64,0.25);
+    z-index:60;
+  }
+  .tooltip-trigger::before{
+    content:"";
+    position:absolute;
+    bottom:calc(100% + 4px);
+    left:50%;
+    transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent;
+    border-top-color:var(--ink);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.15s ease, transform 0.15s ease;
+    z-index:60;
+  }
+  .tooltip-trigger:hover::after, .tooltip-trigger:hover::before,
+  .tooltip-trigger:focus-visible::after, .tooltip-trigger:focus-visible::before,
+  .tooltip-trigger.tooltip-show::after, .tooltip-trigger.tooltip-show::before{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
 </style>
 </head>
 <body>
@@ -218,19 +259,19 @@
   <div class="who">Satish Kumar · LTIMindtree, India</div>
   <div class="sub" id="subhead">Loading time left to vote…</div>
 
-  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta" title="Opens the official voting form in a new tab">
+  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta tooltip-trigger" data-tooltip="Opens the official voting form in a new tab">
     <span class="ripple" aria-hidden="true"></span>
     <span aria-hidden="true">🗳️</span> Vote Now →
   </a>
 
   <div class="secondary-row">
-    <button type="button" class="secondary-btn" id="copyLinkBtn" aria-live="polite" title="Copy the voting link to your clipboard">
+    <button type="button" class="secondary-btn tooltip-trigger" id="copyLinkBtn" aria-live="polite" data-tooltip="Copy the voting link to your clipboard">
       <span aria-hidden="true">🔗</span> Copy link
     </button>
-    <button type="button" class="secondary-btn" id="shareBtn" title="Share this page via your device share menu">
+    <button type="button" class="secondary-btn tooltip-trigger" id="shareBtn" data-tooltip="Share this page via your device share menu">
       <span aria-hidden="true">📤</span> Share
     </button>
-    <button type="button" class="secondary-btn" id="qrModalBtn" aria-haspopup="dialog" title="Show a scannable QR code for the voting link">
+    <button type="button" class="secondary-btn tooltip-trigger" id="qrModalBtn" aria-haspopup="dialog" data-tooltip="Show a scannable QR code for the voting link">
       <span aria-hidden="true">📱</span> Show QR code
     </button>
   </div>
@@ -324,15 +365,15 @@
 </div>
 
 <div class="footer">
-  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="footer-cta" title="Opens the official voting form in a new tab">🗳️ Vote Now →</a>
+  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="footer-cta tooltip-trigger" data-tooltip="Opens the official voting form in a new tab">🗳️ Vote Now →</a>
   <p class="disclaimer">This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners. All other logos and marks shown are trademarks of their respective owners.</p>
 </div>
 
-<a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="sticky-cta" id="stickyVote" title="Opens the official voting form in a new tab">🗳️ Vote Now →</a>
+<a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="sticky-cta tooltip-trigger" id="stickyVote" data-tooltip="Opens the official voting form in a new tab">🗳️ Vote Now →</a>
 
 <div class="modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
   <div class="modal-card">
-    <button type="button" class="modal-close" id="qrModalClose" aria-label="Close QR code dialog" title="Close this dialog">✕</button>
+    <button type="button" class="modal-close tooltip-trigger" id="qrModalClose" aria-label="Close QR code dialog" data-tooltip="Close this dialog">✕</button>
     <h2 id="qrModalTitle">Scan to vote</h2>
     <div class="qr-glow">
       <img src="qr-code-v2.png" alt="QR code linking to the voting form for Satish Kumar, Open Source Impact APJ">
@@ -477,6 +518,42 @@
       })
       .catch(function () {});
   }
+})();
+</script>
+
+<!-- Custom tooltip behavior: hover/focus on desktop, long-press on touch -->
+<script>
+(function () {
+  var triggers = document.querySelectorAll('.tooltip-trigger');
+  var LONG_PRESS_MS = 500;
+
+  triggers.forEach(function (el) {
+    var timer = null;
+    var longPressFired = false;
+
+    el.addEventListener('touchstart', function () {
+      longPressFired = false;
+      timer = setTimeout(function () {
+        longPressFired = true;
+        document.querySelectorAll('.tooltip-trigger.tooltip-show').forEach(function (t) {
+          if (t !== el) t.classList.remove('tooltip-show');
+        });
+        el.classList.add('tooltip-show');
+        setTimeout(function () { el.classList.remove('tooltip-show'); }, 2000);
+      }, LONG_PRESS_MS);
+    }, { passive: true });
+
+    el.addEventListener('touchend', function (e) {
+      clearTimeout(timer);
+      if (longPressFired) {
+        e.preventDefault();
+      }
+    });
+
+    el.addEventListener('touchmove', function () {
+      clearTimeout(timer);
+    }, { passive: true });
+  });
 })();
 </script>
 </body>
