@@ -34,7 +34,7 @@
 
   /* ---------- TOPBAR ---------- */
   .topbar{padding:18px 32px;display:flex;align-items:center;gap:10px;}
-  .topbar img{width:22px;height:22px;}
+  .topbar-mark{width:22px;height:22px;flex-shrink:0;}
   .topbar span{font-size:14px;font-weight:600;color:var(--ink-soft);}
 
   /* ---------- HERO ---------- */
@@ -57,6 +57,10 @@
   h1{position:relative;z-index:2;font-size:42px;font-weight:800;line-height:1.15;max-width:760px;
     text-shadow:0 2px 24px rgba(255,255,255,0.5);}
   .who{position:relative;z-index:2;margin-top:14px;font-size:18px;font-weight:600;}
+  .category-desc{position:relative;z-index:2;margin-top:14px;font-size:14px;font-style:italic;color:var(--ink-soft);
+    max-width:560px;line-height:1.6;}
+  .category-desc cite{display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;
+    color:var(--ink);not-italic:normal;}
   .sub{position:relative;z-index:2;margin-top:6px;font-size:15px;font-weight:500;color:var(--ink-soft);}
 
   .cta{
@@ -162,6 +166,8 @@
   .proof-shot-link:hover .proof-shot{box-shadow:0 20px 44px rgba(0,90,150,0.18);}
   .proof-shot{width:100%;max-width:760px;border-radius:14px;border:1px solid #E4EEF3;box-shadow:0 14px 34px rgba(0,90,150,0.10);margin-bottom:18px;display:block;}
   .stat-row{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-wrap:wrap;}
+  .bio-title{font-size:15px;font-weight:700;color:var(--ink);margin-top:16px;}
+  .bio-text{font-size:14px;color:var(--ink-soft);line-height:1.7;text-align:left;max-width:680px;margin:8px auto 0;}
   .stat-card{background:#F1F8FC;border-radius:14px;padding:18px 28px;min-width:140px;}
   .stat-num{font-size:26px;font-weight:800;color:var(--ink);}
   .stat-label{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
@@ -216,7 +222,13 @@
 <body>
 
 <div class="topbar">
-  <img src="snowflake-color.svg" alt="Snowflake">
+  <svg class="topbar-mark" viewBox="0 0 24 24" fill="none" stroke="var(--ice-deep)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+    <line x1="12" y1="2" x2="12" y2="22"/>
+    <line x1="3.5" y1="7" x2="20.5" y2="17"/>
+    <line x1="20.5" y1="7" x2="3.5" y2="17"/>
+    <line x1="12" y1="2" x2="9" y2="5.2"/><line x1="12" y1="2" x2="15" y2="5.2"/>
+    <line x1="12" y1="22" x2="9" y2="18.8"/><line x1="12" y1="22" x2="15" y2="18.8"/>
+  </svg>
   <span>Snowflake Chronicles</span>
 </div>
 
@@ -226,6 +238,10 @@
   <img class="finalist-badge" src="open_source_I_am_finalist_badge.jpeg" alt="2026 Snowflake Community Awards Finalist — Open Source Impact, APJ">
   <h1>Open Source Impact, APJ Finalist</h1>
   <div class="who">Satish Kumar · LTIMindtree, India</div>
+  <blockquote class="category-desc">
+    "Honors the individual or group whose open-source contributions serve as a force multiplier — the tools, frameworks, and libraries that empower the community to build faster and solve complex data challenges."
+    <cite>— Open Source Impact, Snowflake Community Awards</cite>
+  </blockquote>
   <div class="sub" id="subhead">9d 0h left to vote</div>
 
   <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta">
@@ -278,7 +294,7 @@
 
   <figure class="ballot-shot">
     <img src="ballot-radio-button.png" alt="Screenshot of the APJ section on the ballot, showing the exact radio button to select next to: Satish Kumar, LTIMindtree, India — Creates deployable open-source GitHub frameworks and a blueprint for a native Cost Intelligence Platform; has also published 150+ Medium articles through at SnowflakeChronicles">
-    <figcaption>This is exactly what you're looking for on the ballot</figcaption>
+    <figcaption>This is exactly what you're looking for on the Community Voting Form</figcaption>
   </figure>
 
   <p class="work-note">Blocked on your work network? Scan the QR from a personal device, or <a href="https://tinyurl.com/how2vote4satish" target="_blank" rel="noopener">watch the how-to video</a>.</p>
@@ -291,9 +307,11 @@
     <a class="proof-shot-link" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" aria-label="Vote for Satish Kumar — opens the voting form">
       <img class="proof-shot" src="linkedin-bio-card.png" alt="Satish Kumar, Senior Technical Specialist at LTIMindtree — bio card: 150+ technical articles on Medium, weekly Snowflake Quick Bytes reaching 9,000+ LinkedIn followers, open-source frameworks on GitHub, nominated by 12 community members. Vote for Satish button.">
     </a>
+    <p class="bio-title sr-only">Senior Technical Specialist, LTIMindtree</p>
+    <p class="bio-text sr-only">Satish has published 150+ technical articles on Medium (@SnowflakeChronicles) covering Cortex AI, CoWork, Iceberg, governance, and production architecture, with his top articles reaching thousands of views each (top post: 5K views). He maintains open-source frameworks on GitHub (skrz2014) that are built to deploy, not just demonstrate, including a blueprint for building a native Snowflake Cost Intelligence Platform. He publishes weekly "Snowflake Quick Bytes" on LinkedIn reaching 9,000+ followers, and has 435 Medium followers with 272 email subscribers. His content focuses on production-grade implementation patterns that help practitioners bridge the gap between documentation and real-world deployment. Nominated by 12 community members.</p>
     <div class="stat-row">
       <div class="stat-card"><div class="stat-num">150+</div><div class="stat-label">Technical articles</div></div>
-      <div class="stat-card"><div class="stat-num">10K+</div><div class="stat-label">LinkedIn community</div></div>
+      <div class="stat-card"><div class="stat-num">9,000+</div><div class="stat-label">LinkedIn followers</div></div>
       <div class="stat-card"><div class="stat-num">✓</div><div class="stat-label">Verified finalist</div></div>
     </div>
     <a class="verify-link" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener">View official listing ↗</a>
