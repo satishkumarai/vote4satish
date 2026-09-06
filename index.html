@@ -475,6 +475,19 @@
     }
   })();
 
+  (function(){
+    // Live visit counter via "hits" (hits-app.vercel.app) — no signup required.
+    // Runs silently in the background; the count is only ever shown on the
+    // private stats page, not on this public page.
+    var HITS_URL = 'https://hits-app.vercel.app/hits?url=' + encodeURIComponent('https://satishkumarai.github.io/vote4satish/') + '&json';
+    try {
+      if (!localStorage.getItem('v4s_visited')) {
+        fetch(HITS_URL).catch(function(){});
+        localStorage.setItem('v4s_visited', '1');
+      }
+    } catch (e) {}
+  })();
+
 </script>
 </body>
 </html>

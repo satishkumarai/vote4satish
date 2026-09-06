@@ -31,8 +31,19 @@
 <body>
   <div class="card">
     <h1>vote4satish — private stats</h1>
-    <div class="stat-row"><span class="stat-label">Site visits</span><span class="stat-value">270+</span></div>
-    <p class="note">Not linked from the public page. Static number — update it manually in this file as needed; nothing here auto-updates.</p>
+    <div class="stat-row"><span class="stat-label">Site visits</span><span class="stat-value" id="visitCount">—</span></div>
+    <p class="note">Live count via "hits" (hits-app.vercel.app) — no signup required. Note: viewing this page also counts as a visit, since this free service has no read-only endpoint. Not true per-IP dedup — a static site can't see visitor IPs without a server.</p>
   </div>
+  <script>
+    fetch('https://hits-app.vercel.app/hits?url=' + encodeURIComponent('https://satishkumarai.github.io/vote4satish/') + '&json')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var val = data && (data.value !== undefined ? data.value : (data.hits !== undefined ? data.hits : data.total));
+        document.getElementById('visitCount').textContent = (typeof val === 'number') ? val.toLocaleString() : '—';
+      })
+      .catch(function(){
+        document.getElementById('visitCount').textContent = '—';
+      });
+  </script>
 </body>
 </html>
