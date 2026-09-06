@@ -224,6 +224,30 @@
     box-shadow:0 12px 30px rgba(11,37,64,0.4);
   }
 
+  /* ---------- TOOLTIPS ---------- */
+  .tooltip-target{position:relative;}
+  .tooltip-target::before{
+    content:attr(data-tooltip);position:absolute;bottom:125%;left:50%;
+    transform:translateX(-50%) scale(0.95);background-color:var(--ink);color:#fff;
+    padding:0.4rem 0.75rem;border-radius:6px;font-size:0.75rem;font-weight:500;
+    white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;
+    transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s ease;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;
+  }
+  .tooltip-target::after{
+    content:'';position:absolute;bottom:105%;left:50%;transform:translateX(-50%);
+    border-width:5px;border-style:solid;border-color:var(--ink) transparent transparent transparent;
+    pointer-events:none;opacity:0;visibility:hidden;
+    transition:opacity 0.2s ease,visibility 0.2s ease;z-index:100;
+  }
+  .tooltip-target:hover::before,.tooltip-target:hover::after,
+  .tooltip-target:focus-visible::before,.tooltip-target:focus-visible::after{
+    opacity:1;visibility:visible;transform:translateX(-50%) scale(1);
+  }
+  @media (max-width:720px){
+    .tooltip-target::before{white-space:normal;max-width:220px;text-align:center;}
+  }
+
   @media (max-width:720px){
     .logo-grid{grid-template-columns:repeat(2,1fr);}
     h1{font-size:30px;}
@@ -257,24 +281,24 @@
     <cite>— Open Source Impact, Snowflake Community Awards</cite>
   </blockquote>
 
-  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta">
+  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta tooltip-target" data-tooltip="Opens the official Snowflake voting form in a new tab">
     <span class="ripple" aria-hidden="true"></span>
     <span aria-hidden="true">🗳️</span> Vote Now →
   </a>
 
   <div class="secondary-row">
-    <button type="button" class="secondary-btn" id="copyLinkBtn" aria-live="polite">
+    <button type="button" class="secondary-btn tooltip-target" id="copyLinkBtn" aria-live="polite" data-tooltip="Copy the voting link to your clipboard">
       <span aria-hidden="true">🔗</span> Copy link
     </button>
-    <button type="button" class="secondary-btn" id="shareBtn">
+    <button type="button" class="secondary-btn tooltip-target" id="shareBtn" data-tooltip="Share this page to LinkedIn or your network">
       <span aria-hidden="true">📤</span> Share
     </button>
-    <button type="button" class="secondary-btn" id="qrModalBtn" aria-haspopup="dialog">
+    <button type="button" class="secondary-btn tooltip-target" id="qrModalBtn" aria-haspopup="dialog" data-tooltip="Show a QR code to scan and vote from your phone">
       <span aria-hidden="true">📱</span> Show QR code
     </button>
   </div>
 
-  <button type="button" class="voted-share-link" id="votedShareBtn">Voted already? Share instead →</button>
+  <button type="button" class="voted-share-link tooltip-target" id="votedShareBtn" data-tooltip="Already voted? Share this page with others instead">Voted already? Share instead →</button>
 
   <div class="mid-row">
     <div>
@@ -322,7 +346,7 @@
   <div class="verified-inner">
     <span class="badge">✓ Officially listed on Snowflake.com</span>
     <h2>Verified finalist status</h2>
-    <a class="proof-shot-link" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" aria-label="Vote for Satish Kumar — opens the voting form">
+    <a class="proof-shot-link tooltip-target" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" aria-label="Vote for Satish Kumar — opens the voting form" data-tooltip="Opens the official Snowflake voting form in a new tab">
       <img class="proof-shot" src="linkedin-bio-card.png" alt="Satish Kumar, Senior Technical Specialist at LTIMindtree — bio card: 150+ technical articles on Medium, weekly Snowflake Quick Bytes reaching 9,000+ LinkedIn followers, open-source frameworks on GitHub, nominated by 12 community members. Vote for Satish button.">
     </a>
     <p class="bio-title sr-only">Senior Technical Specialist, LTIMindtree</p>
@@ -333,7 +357,7 @@
       <div class="stat-card"><div class="stat-num">35+</div><div class="stat-label">Open source repos</div></div>
       <div class="stat-card"><div class="stat-num">✓</div><div class="stat-label">Verified finalist</div></div>
     </div>
-    <a class="verify-link" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener">View official listing ↗</a>
+    <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener" data-tooltip="View the official finalist listing on Snowflake.com">View official listing ↗</a>
   </div>
 </div>
 
@@ -343,28 +367,28 @@
     <p class="explore-sub">Practical Snowflake knowledge, open-source projects, and learning resources</p>
     <div class="logo-grid">
 
-      <a class="logo-card" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener">
+      <a class="logo-card tooltip-target" href="https://www.linkedin.com/in/satishkumar-snowflake/" target="_blank" rel="noopener" data-tooltip="Connect with Satish on LinkedIn for weekly Snowflake Quick Bytes">
         <div class="logo-icon li-icon"><img src="icon-linkedin.png" alt="LinkedIn"></div>
         <div class="logo-title">LinkedIn</div>
         <div class="logo-desc">Connect — @satishkumar-snowflake</div>
         <div class="logo-cta">Connect →</div>
       </a>
 
-      <a class="logo-card" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener">
+      <a class="logo-card tooltip-target" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener" data-tooltip="Read Satish's technical articles on Medium">
         <div class="logo-icon md-icon"><img src="icon-medium.png" alt="Medium"></div>
         <div class="logo-title">Medium</div>
         <div class="logo-desc">Read — @snowflakechronicles</div>
         <div class="logo-cta">Read →</div>
       </a>
 
-      <a class="logo-card" href="https://github.com/satishkumarai/" target="_blank" rel="noopener">
+      <a class="logo-card tooltip-target" href="https://github.com/satishkumarai/" target="_blank" rel="noopener" data-tooltip="Explore Satish's open-source Snowflake projects on GitHub">
         <div class="logo-icon gh-icon"><img src="icon-github.png" alt="GitHub"></div>
         <div class="logo-title">GitHub</div>
         <div class="logo-desc">Explore — @satishkumarai</div>
         <div class="logo-cta">Explore →</div>
       </a>
 
-      <a class="logo-card" href="https://www.youtube.com/@snowflakechronicles" target="_blank" rel="noopener">
+      <a class="logo-card tooltip-target" href="https://www.youtube.com/@snowflakechronicles" target="_blank" rel="noopener" data-tooltip="Watch video walkthroughs and demos on YouTube">
         <div class="logo-icon yt-icon"><img src="icon-youtube.png" alt="YouTube"></div>
         <div class="logo-title">YouTube</div>
         <div class="logo-desc">Watch — @snowflakechronicles</div>
@@ -378,11 +402,11 @@
 </div>
 
 <div class="footer">
-  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="footer-cta">🗳️ Vote Now →</a>
+  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="footer-cta tooltip-target" data-tooltip="Opens the official Snowflake voting form in a new tab">🗳️ Vote Now →</a>
   <p class="disclaimer">This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake Inc. or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners. All other logos and marks shown are trademarks of their respective owners.</p>
 </div>
 
-<a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="sticky-cta" id="stickyVote">🗳️ Vote Now →</a>
+<a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="sticky-cta tooltip-target" id="stickyVote" data-tooltip="Opens the official Snowflake voting form in a new tab">🗳️ Vote Now →</a>
 
 <div class="modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
   <div class="modal-card">
