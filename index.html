@@ -57,6 +57,11 @@
   h1{position:relative;z-index:2;font-size:42px;font-weight:800;line-height:1.15;max-width:760px;
     text-shadow:0 2px 24px rgba(255,255,255,0.5);}
   .who{position:relative;z-index:2;margin-top:14px;font-size:18px;font-weight:600;}
+  .proof-bar{position:relative;z-index:2;margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .proof-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.6);
+    border:1px solid rgba(255,255,255,0.9);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;}
+  .proof-chip span.n{color:var(--ink);}
+  .proof-chip span.l{color:var(--ink-soft);font-weight:600;}
   .category-desc{position:relative;z-index:2;margin-top:14px;font-size:14px;font-style:italic;color:var(--ink-soft);
     max-width:560px;line-height:1.6;}
   .category-desc cite{display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;
@@ -114,19 +119,26 @@
   .steps{position:relative;z-index:2;margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
     width:100%;max-width:820px;list-style:none;}
   .step{background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.9);
-    border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:10px;
+    border-radius:14px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;
     box-shadow:0 8px 22px rgba(0,90,150,0.10);}
-  .step-num{font-size:18px;flex-shrink:0;}
-  .step-text{font-size:13px;font-weight:600;text-align:left;line-height:1.4;}
+  .step-num{background:var(--ink);color:#fff;width:24px;height:24px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .step-title{font-size:13px;font-weight:700;text-align:left;line-height:1.4;}
+  .step-desc{font-size:12px;font-weight:500;color:var(--ink-soft);text-align:left;line-height:1.4;margin-top:2px;}
   .steps-then{position:relative;z-index:2;margin-top:22px;font-size:13px;font-weight:700;color:var(--ink-soft);
     text-transform:uppercase;letter-spacing:1px;}
   .steps-final{position:relative;z-index:2;margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);
     gap:14px;width:100%;max-width:820px;list-style:none;}
   .step-final{background:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.95);
-    border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:10px;
+    border-radius:14px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;
     box-shadow:0 8px 22px rgba(0,90,150,0.10);}
-  .step-final .step-num{background:var(--ink);color:#fff;width:24px;height:24px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .steps.duo{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .steps.duo .step{max-width:380px;width:100%;}
+  .step-final.step-final--media{flex-direction:column;align-items:stretch;gap:0;}
+  .step-final-row{display:flex;align-items:flex-start;gap:10px;}
+  .step-final--media .ballot-shot{margin-top:14px;max-width:100%;}
+  .steps-final.solo{display:flex;justify-content:center;}
+  .steps-final.solo .step-final{max-width:520px;width:100%;}
   @media (max-width:720px){
     .steps, .steps-final{grid-template-columns:1fr;}
   }
@@ -201,7 +213,7 @@
   /* ---------- FOOTER ---------- */
   .footer{background:#fff;border-top:1px solid #E4EEF3;padding:40px 32px 96px;text-align:center;}
   .footer-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-size:14px;
-    font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;margin-bottom:24px;
+    font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;margin-bottom:2rem;
     box-shadow:0 10px 24px rgba(11,37,64,0.25);}
   .disclaimer{font-size:11px;color:var(--gray);max-width:640px;margin:0 auto;line-height:1.6;}
 
@@ -222,12 +234,9 @@
 <body>
 
 <div class="topbar">
-  <svg class="topbar-mark" viewBox="0 0 24 24" fill="none" stroke="var(--ice-deep)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-    <line x1="12" y1="2" x2="12" y2="22"/>
-    <line x1="3.5" y1="7" x2="20.5" y2="17"/>
-    <line x1="20.5" y1="7" x2="3.5" y2="17"/>
-    <line x1="12" y1="2" x2="9" y2="5.2"/><line x1="12" y1="2" x2="15" y2="5.2"/>
-    <line x1="12" y1="22" x2="9" y2="18.8"/><line x1="12" y1="22" x2="15" y2="18.8"/>
+  <svg class="topbar-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <title>Snowflake</title>
+    <path clip-rule="evenodd" fill-rule="evenodd" fill="#249EDC" d="M23.252 10.365l-2.843 1.636 2.843 1.631a1.47 1.47 0 01.697.903 1.492 1.492 0 01-.15 1.135c-.202.342-.53.591-.912.693a1.498 1.498 0 01-1.132-.15l-5.09-2.924a1.473 1.473 0 01-.68-.851 1.446 1.446 0 01-.068-.485 1.5 1.5 0 01.745-1.248l5.09-2.921a1.496 1.496 0 012.044.547 1.479 1.479 0 01-.544 2.034zm-2.692 7.927l-5.087-2.92a1.477 1.477 0 00-.867-.195 1.478 1.478 0 00-.982.468c-.257.276-.4.639-.403 1.017v5.847A1.49 1.49 0 0014.718 24c.828 0 1.497-.668 1.497-1.491v-3.27l2.849 1.636a1.493 1.493 0 002.044-.544 1.49 1.49 0 00-.548-2.04zm-5.87-5.719l-2.116 2.102a.42.42 0 01-.265.112h-.621a.427.427 0 01-.265-.112l-2.115-2.102a.42.42 0 01-.11-.262v-.62a.43.43 0 01.11-.265l2.114-2.102a.426.426 0 01.264-.11h.623a.422.422 0 01.265.11l2.116 2.102a.43.43 0 01.109.265v.62a.428.428 0 01-.11.262zM13 11.99a.442.442 0 00-.113-.266l-.612-.607a.431.431 0 00-.266-.11h-.024a.426.426 0 00-.264.11l-.612.607a.436.436 0 00-.107.266v.024c0 .085.047.202.107.262l.612.61c.061.06.179.11.264.11h.024a.434.434 0 00.266-.11l.612-.61a.429.429 0 00.112-.262v-.024zM3.436 5.704l5.089 2.924c.274.157.578.219.868.195.375-.026.726-.194.983-.47.256-.275.4-.64.403-1.017V1.489C10.78.667 10.11 0 9.284 0c-.829 0-1.498.667-1.498 1.49v3.27l-2.85-1.639a1.496 1.496 0 00-2.045.546 1.489 1.489 0 00.546 2.037zm11.17 3.119c.29.024.594-.038.866-.195l5.087-2.923a1.474 1.474 0 00.697-.903 1.496 1.496 0 00-.149-1.135 1.496 1.496 0 00-2.044-.545L16.215 4.76V1.489C16.215.667 15.546 0 14.718 0c-.83 0-1.497.667-1.497 1.49v5.845a1.491 1.491 0 001.385 1.487zm-5.213 6.354a1.479 1.479 0 00-.868.194l-5.089 2.92a1.476 1.476 0 00-.696.905 1.498 1.498 0 00.148 1.135 1.496 1.496 0 002.044.543l2.851-1.636v3.27c0 .825.67 1.491 1.498 1.491.826 0 1.496-.667 1.496-1.49v-5.847a1.5 1.5 0 00-.401-1.017 1.477 1.477 0 00-.982-.468zm-1.38-2.74c.05-.156.072-.32.068-.484a1.497 1.497 0 00-.751-1.248l-5.084-2.92a1.499 1.499 0 00-2.045.547 1.481 1.481 0 00.549 2.034l2.841 1.636L.75 13.633a1.47 1.47 0 00-.698.903 1.492 1.492 0 00.15 1.135c.202.343.53.592.912.693.382.102.789.048 1.132-.15l5.086-2.924c.345-.195.577-.505.684-.852z"/>
   </svg>
   <span>Snowflake Chronicles</span>
 </div>
@@ -235,14 +244,18 @@
 <div class="hero">
   <div class="glow-orb"></div>
   <div class="eyebrow">Snowflake Community Awards · 2026 Finalist</div>
-  <img class="finalist-badge" src="open_source_I_am_finalist_badge.jpeg" alt="2026 Snowflake Community Awards Finalist — Open Source Impact, APJ">
+  <img class="finalist-badge" src="open_source_I_am_finalist_badge.jpeg" alt="" role="presentation">
   <h1>Open Source Impact, APJ Finalist</h1>
   <div class="who">Satish Kumar · LTIMindtree, India</div>
+  <div class="proof-bar" aria-label="Track record">
+    <span class="proof-chip"><span aria-hidden="true">🏆</span><span class="n">150+</span>&nbsp;<span class="l">Articles</span></span>
+    <span class="proof-chip"><span aria-hidden="true">👥</span><span class="n">9,000+</span>&nbsp;<span class="l">LinkedIn Community</span></span>
+    <span class="proof-chip"><span aria-hidden="true">📦</span><span class="n">35+</span>&nbsp;<span class="l">Open Source Repos</span></span>
+  </div>
   <blockquote class="category-desc">
     "Honors the individual or group whose open-source contributions serve as a force multiplier — the tools, frameworks, and libraries that empower the community to build faster and solve complex data challenges."
     <cite>— Open Source Impact, Snowflake Community Awards</cite>
   </blockquote>
-  <div class="sub" id="subhead">9d 0h left to vote</div>
 
   <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta">
     <span class="ripple" aria-hidden="true"></span>
@@ -279,23 +292,28 @@
   </div>
 
   <h2 class="steps-heading"><span aria-hidden="true">🗳️</span> How to vote for Satish Kumar — Open Source Impact (APJ)</h2>
-  <ol class="steps">
-    <li class="step"><span class="step-num" aria-hidden="true">1️⃣</span><span class="step-text"><span class="sr-only">Step 1: </span>Open the community voting form</span></li>
-    <li class="step"><span class="step-num" aria-hidden="true">2️⃣</span><span class="step-text"><span class="sr-only">Step 2: </span>Enter your personal or official email</span></li>
-    <li class="step"><span class="step-num" aria-hidden="true">3️⃣</span><span class="step-text"><span class="sr-only">Step 3: </span>Click "Next" 5 times to reach Page 6 of 7 — "Open Source Impact → APJ"</span></li>
+  <ol class="steps duo">
+    <li class="step"><span class="step-num" aria-hidden="true">1</span><div><div class="step-title"><span class="sr-only">Step 1: </span>Access & Verify</div><div class="step-desc">Open the voting form and enter your email address.</div></div></li>
+    <li class="step"><span class="step-num" aria-hidden="true">2</span><div><div class="step-title"><span class="sr-only">Step 2: </span>Navigate to APJ Category</div><div class="step-desc">Click Next until you reach Page 6 of 7 (Open Source Impact → APJ).</div></div></li>
   </ol>
 
   <div class="steps-then">Then</div>
-  <ol class="steps-final">
-    <li class="step-final"><span class="step-num" aria-hidden="true">1</span><span class="step-text"><span class="sr-only">Step 4: </span>Find & select the radio button next to "Satish Kumar | LTIMindtree, India"</span></li>
-    <li class="step-final"><span class="step-num" aria-hidden="true">2</span><span class="step-text"><span class="sr-only">Step 5: </span>Click Next</span></li>
-    <li class="step-final"><span class="step-num" aria-hidden="true">3</span><span class="step-text"><span class="sr-only">Step 6: </span>Click Submit</span></li>
+  <ol class="steps-final solo">
+    <li class="step-final step-final--media">
+      <div class="step-final-row">
+        <span class="step-num" aria-hidden="true">3</span>
+        <div><div class="step-title"><span class="sr-only">Step 3: </span>Select Candidate</div><div class="step-desc">Locate and select the radio button for Satish Kumar | LTIMindtree, India.</div></div>
+      </div>
+      <figure class="ballot-shot">
+        <img src="ballot-radio-button.png" alt="Screenshot of the APJ section on the ballot, showing the exact radio button to select next to: Satish Kumar, LTIMindtree, India — Creates deployable open-source GitHub frameworks and a blueprint for a native Cost Intelligence Platform; has also published 150+ Medium articles through at SnowflakeChronicles">
+        <figcaption>This is exactly what you're looking for on the Community Voting Form</figcaption>
+      </figure>
+    </li>
   </ol>
 
-  <figure class="ballot-shot">
-    <img src="ballot-radio-button.png" alt="Screenshot of the APJ section on the ballot, showing the exact radio button to select next to: Satish Kumar, LTIMindtree, India — Creates deployable open-source GitHub frameworks and a blueprint for a native Cost Intelligence Platform; has also published 150+ Medium articles through at SnowflakeChronicles">
-    <figcaption>This is exactly what you're looking for on the Community Voting Form</figcaption>
-  </figure>
+  <ol class="steps-final solo">
+    <li class="step-final"><span class="step-num" aria-hidden="true">4</span><div><div class="step-title"><span class="sr-only">Step 4: </span>Submit Vote</div><div class="step-desc">Click Next and hit Submit to finalize.</div></div></li>
+  </ol>
 
   <p class="work-note">Blocked on your work network? Scan the QR from a personal device, or <a href="https://tinyurl.com/how2vote4satish" target="_blank" rel="noopener">watch the how-to video</a>.</p>
 </div>
@@ -312,6 +330,7 @@
     <div class="stat-row">
       <div class="stat-card"><div class="stat-num">150+</div><div class="stat-label">Technical articles</div></div>
       <div class="stat-card"><div class="stat-num">9,000+</div><div class="stat-label">LinkedIn followers</div></div>
+      <div class="stat-card"><div class="stat-num">35+</div><div class="stat-label">Open source repos</div></div>
       <div class="stat-card"><div class="stat-num">✓</div><div class="stat-label">Verified finalist</div></div>
     </div>
     <a class="verify-link" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener">View official listing ↗</a>
@@ -345,10 +364,10 @@
         <div class="logo-cta">Explore →</div>
       </a>
 
-      <a class="logo-card" href="https://www.youtube.com/@snowflakechronicless" target="_blank" rel="noopener">
+      <a class="logo-card" href="https://www.youtube.com/@snowflakechronicles" target="_blank" rel="noopener">
         <div class="logo-icon yt-icon"><img src="icon-youtube.png" alt="YouTube"></div>
         <div class="logo-title">YouTube</div>
-        <div class="logo-desc">Watch — @snowflakechronicless</div>
+        <div class="logo-desc">Watch — @snowflakechronicles</div>
         <div class="logo-cta">Watch →</div>
       </a>
 
@@ -360,7 +379,7 @@
 
 <div class="footer">
   <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="footer-cta">🗳️ Vote Now →</a>
-  <p class="disclaimer">This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners. All other logos and marks shown are trademarks of their respective owners.</p>
+  <p class="disclaimer">This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake Inc. or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners. All other logos and marks shown are trademarks of their respective owners.</p>
 </div>
 
 <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="sticky-cta" id="stickyVote">🗳️ Vote Now →</a>
@@ -390,7 +409,6 @@
     document.getElementById("hh").textContent = String(h).padStart(2,"0");
     document.getElementById("mm").textContent = String(m).padStart(2,"0");
     document.getElementById("ss").textContent = String(s).padStart(2,"0");
-    document.getElementById("subhead").textContent = d + "d " + h + "h left to vote";
   }
   tick();
   setInterval(tick, 1000);
