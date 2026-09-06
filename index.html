@@ -474,6 +474,16 @@
       });
     }
   })();
+  (function(){
+    // Visit counter: increments a persistent counter once per browser (localStorage dedup).
+    // Not true IP-based dedup — that requires a server, which this static site doesn't have.
+    try {
+      if (!localStorage.getItem('v4s_visited')) {
+        fetch('https://api.countapi.xyz/hit/vote4satish-skrz2014/visits').catch(function(){});
+        localStorage.setItem('v4s_visited', '1');
+      }
+    } catch (e) {}
+  })();
 </script>
 </body>
 </html>

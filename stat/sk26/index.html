@@ -31,8 +31,18 @@
 <body>
   <div class="card">
     <h1>vote4satish — private stats</h1>
-    <div class="stat-row"><span class="stat-label">Site visits</span><span class="stat-value">270+</span></div>
-    <p class="note">Not linked from the public page. Update the number in this file directly as needed — nothing here auto-updates.</p>
+    <div class="stat-row"><span class="stat-label">Site visits</span><span class="stat-value" id="visitCount">—</span></div>
+    <p class="note">Counts once per browser (localStorage-based). Not true per-IP dedup — a static site can't see visitor IPs without a server. Powered by a free third-party counter API (countapi.xyz) — no uptime guarantee.</p>
   </div>
+  <script>
+    fetch('https://api.countapi.xyz/get/vote4satish-skrz2014/visits')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        document.getElementById('visitCount').textContent = (data && typeof data.value === 'number') ? data.value.toLocaleString() : '270+';
+      })
+      .catch(function(){
+        document.getElementById('visitCount').textContent = '270+';
+      });
+  </script>
 </body>
 </html>
