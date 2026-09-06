@@ -476,13 +476,14 @@
   })();
 
   (function(){
-    // Live visit counter via "hits" (hits-app.vercel.app) — no signup required.
-    // Runs silently in the background; the count is only ever shown on the
-    // private stats page, not on this public page.
-    var HITS_URL = 'https://hits-app.vercel.app/hits?url=' + encodeURIComponent('https://satishkumarai.github.io/vote4satish/') + '&json';
+    // Live visit counter via Tally API (tally.yuki.sh) — no signup required.
+    // Open source, hosted on Cloudflare Pages Functions + KV. Does true per-IP
+    // unique-visitor dedup server-side (via CF-Connecting-IP), so this is real
+    // dedup, not just a per-browser approximation.
+    var TALLY_URL = 'https://tally.yuki.sh/hits/vote4satish/site-visits.json';
     try {
       if (!localStorage.getItem('v4s_visited')) {
-        fetch(HITS_URL).catch(function(){});
+        fetch(TALLY_URL).catch(function(){});
         localStorage.setItem('v4s_visited', '1');
       }
     } catch (e) {}

@@ -31,18 +31,20 @@
 <body>
   <div class="card">
     <h1>vote4satish — private stats</h1>
-    <div class="stat-row"><span class="stat-label">Site visits</span><span class="stat-value" id="visitCount">—</span></div>
-    <p class="note">Live count via "hits" (hits-app.vercel.app) — no signup required. Note: viewing this page also counts as a visit, since this free service has no read-only endpoint. Not true per-IP dedup — a static site can't see visitor IPs without a server.</p>
+    <div class="stat-row"><span class="stat-label">Total visits</span><span class="stat-value" id="visitCount">—</span></div>
+    <div class="stat-row"><span class="stat-label">Unique visitors</span><span class="stat-value" id="visitorCount">—</span></div>
+    <p class="note">Live via Tally API (tally.yuki.sh) — no signup required, open source, hosted on Cloudflare. Unique visitors are deduped by IP server-side. This page uses read-only mode, so checking it does not add to the count.</p>
   </div>
   <script>
-    fetch('https://hits-app.vercel.app/hits?url=' + encodeURIComponent('https://satishkumarai.github.io/vote4satish/') + '&json')
+    fetch('https://tally.yuki.sh/hits/vote4satish/site-visits.json?mode=read')
       .then(function(r){ return r.json(); })
       .then(function(data){
-        var val = data && (data.value !== undefined ? data.value : (data.hits !== undefined ? data.hits : data.total));
-        document.getElementById('visitCount').textContent = (typeof val === 'number') ? val.toLocaleString() : '—';
+        document.getElementById('visitCount').textContent = (data && typeof data.visit === 'number') ? data.visit.toLocaleString() : '—';
+        document.getElementById('visitorCount').textContent = (data && typeof data.visitor === 'number') ? data.visitor.toLocaleString() : '—';
       })
       .catch(function(){
         document.getElementById('visitCount').textContent = '—';
+        document.getElementById('visitorCount').textContent = '—';
       });
   </script>
 </body>
