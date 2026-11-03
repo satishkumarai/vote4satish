@@ -3,12 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vote for Satish Kumar — Open Source Impact, APJ · Snowflake Community Awards 2026</title>
-<meta name="description" content="Satish Kumar is a finalist for the 2026 Snowflake Community Awards — Open Source Impact (APJ). Vote before September 15, 2026.">
-<meta property="og:title" content="Vote for Satish Kumar — Snowflake Community Awards 2026">
-<meta property="og:description" content="Finalist, Open Source Impact (APJ) — recognizing open-source work through Snowflake Chronicles.">
-<meta property="og:image" content="https://satishkumarai.github.io/vote4satish/open_source_I_am_finalist_badge.jpeg">
+<title>Satish Kumar — 2026 Winner, Open Source Impact (APJ) · Snowflake Community Awards</title>
+<meta name="description" content="Satish Kumar, Senior Technical Specialist at LTIMindtree, is the 2026 Snowflake Community Awards Open Source Impact winner for APJ. 150+ technical articles, open-source projects and Snowflake architecture through Snowflake Chronicles.">
+<link rel="canonical" href="https://satishkumarai.github.io/vote4satish/">
+<meta property="og:title" content="2026 Winner — Open Source Impact (APJ) · Snowflake Community Awards">
+<meta property="og:description" content="Satish Kumar is the 2026 Snowflake Community Awards Open Source Impact winner for APJ. Learn. Build. Document. Share. — through Snowflake Chronicles.">
+<meta property="og:image" content="https://satishkumarai.github.io/vote4satish/og-winner.png">
+<meta property="og:image:alt" content="2026 Winner — Open Source Impact, APJ — Satish Kumar, Snowflake Community Awards">
+<meta property="og:url" content="https://satishkumarai.github.io/vote4satish/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 Winner — Open Source Impact (APJ) · Snowflake Community Awards">
+<meta name="twitter:description" content="Satish Kumar is the 2026 Snowflake Community Awards Open Source Impact winner for APJ.">
+<meta name="twitter:image" content="https://satishkumarai.github.io/vote4satish/og-winner.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Satish Kumar",
+  "jobTitle": "Senior Technical Specialist",
+  "worksFor": { "@type": "Organization", "name": "LTIMindtree" },
+  "award": "2026 Snowflake Community Awards — Open Source Impact Winner (APJ)",
+  "url": "https://satishkumarai.github.io/vote4satish/",
+  "sameAs": [
+    "https://www.linkedin.com/in/satishkumar-snowflake/",
+    "https://medium.com/@snowflakechronicles",
+    "https://github.com/satishkumarai/",
+    "https://www.youtube.com/@snowflakechronicless"
+  ]
+}
+</script>
 <style>
   :root{
     --ice:#00BFFF;
@@ -16,6 +40,7 @@
     --ink:#0B2540;
     --ink-soft:#35516A;
     --gray:#6B7885;
+    --gold:#E8A317;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
@@ -30,7 +55,6 @@
     position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0;
   }
-  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
 
   /* ---------- TOPBAR ---------- */
   .topbar{padding:18px 32px;display:flex;align-items:center;gap:10px;}
@@ -52,40 +76,37 @@
     background:rgba(255,255,255,0.55);padding:8px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.85);
     margin-bottom:22px;
   }
-  .finalist-badge{position:relative;z-index:2;width:220px;margin-bottom:22px;filter:drop-shadow(0 16px 32px rgba(11,37,64,0.20));}
-  @media (max-width:720px){ .finalist-badge{width:170px;} }
-  h1{position:relative;z-index:2;font-size:42px;font-weight:800;line-height:1.15;max-width:760px;
+  .winner-badge{position:relative;z-index:2;width:240px;height:auto;margin-bottom:18px;filter:drop-shadow(0 16px 32px rgba(11,37,64,0.25));}
+  @media (max-width:720px){ .winner-badge{width:180px;} }
+  .profile-card{display:block;width:100%;max-width:460px;height:auto;margin:0 auto 26px;}
+  h1{position:relative;z-index:2;font-size:54px;font-weight:800;line-height:1.1;letter-spacing:1px;max-width:760px;
     text-shadow:0 2px 24px rgba(255,255,255,0.5);}
-  .who{position:relative;z-index:2;margin-top:14px;font-size:18px;font-weight:600;}
-  .proof-bar{position:relative;z-index:2;margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .category{position:relative;z-index:2;margin-top:8px;font-size:24px;font-weight:700;color:var(--ink);}
+  .who{position:relative;z-index:2;margin-top:22px;font-size:26px;font-weight:800;}
+  .role{position:relative;z-index:2;margin-top:6px;font-size:16px;font-weight:600;color:var(--ink-soft);}
+  .tagline{position:relative;z-index:2;margin-top:18px;font-size:20px;font-weight:700;letter-spacing:0.5px;}
+  .tagline-sub{position:relative;z-index:2;margin-top:8px;font-size:15px;font-weight:500;color:var(--ink-soft);max-width:640px;line-height:1.6;}
+  .brand-line{position:relative;z-index:2;margin-top:14px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);}
+
+  .proof-bar{position:relative;z-index:2;margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
   .proof-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.6);
     border:1px solid rgba(255,255,255,0.9);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;}
   .proof-chip span.n{color:var(--ink);}
   .proof-chip span.l{color:var(--ink-soft);font-weight:600;}
-  .category-desc{position:relative;z-index:2;margin-top:14px;font-size:14px;font-style:italic;color:var(--ink-soft);
+  .category-desc{position:relative;z-index:2;margin-top:22px;font-size:14px;font-style:italic;color:var(--ink-soft);
     max-width:560px;line-height:1.6;}
   .category-desc cite{display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;
-    color:var(--ink);not-italic:normal;}
-  .sub{position:relative;z-index:2;margin-top:6px;font-size:15px;font-weight:500;color:var(--ink-soft);}
+    color:var(--ink);}
 
   .cta{
     position:relative;z-index:2;margin-top:28px;display:inline-flex;align-items:center;gap:10px;
-    background:var(--ink);color:#fff;font-size:18px;font-weight:700;padding:18px 42px;border-radius:999px;
+    background:var(--ink);color:#fff;font-size:18px;font-weight:700;padding:16px 38px;border-radius:999px;
     border:none;cursor:pointer;box-shadow:0 18px 40px rgba(11,37,64,0.35),0 4px 10px rgba(11,37,64,0.2);
-    overflow:hidden;text-decoration:none;transition:box-shadow 0.2s ease;
+    text-decoration:none;transition:box-shadow 0.2s ease;
   }
   .cta:hover{box-shadow:0 22px 48px rgba(11,37,64,0.42),0 6px 14px rgba(11,37,64,0.25);}
-  .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.35);width:20px;height:20px;
-    left:50%;top:50%;transform:translate(-50%,-50%);animation:rippleAnim 2.4s ease-out infinite;}
-  @keyframes rippleAnim{0%{width:20px;height:20px;opacity:0.5;}100%{width:300px;height:300px;opacity:0;}}
 
   .secondary-row{position:relative;z-index:2;margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-  .voted-share-link{
-    position:relative;z-index:2;margin-top:14px;background:none;border:none;cursor:pointer;
-    font-size:13px;font-weight:700;color:var(--ink-soft);text-decoration:underline;
-    text-underline-offset:3px;
-  }
-  .voted-share-link:hover{color:var(--ink);}
   .secondary-btn{
     display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.6);color:var(--ink);
     font-size:13px;font-weight:700;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.9);
@@ -94,97 +115,30 @@
   .secondary-btn:hover{background:rgba(255,255,255,0.85);}
   .secondary-btn[data-copied="true"]{background:#0B2540;color:#fff;}
 
-  .mid-row{position:relative;z-index:2;margin-top:42px;display:flex;align-items:center;justify-content:center;
-    gap:48px;flex-wrap:wrap;}
-  .qr-glow{width:160px;height:160px;border-radius:22px;background:#fff;display:flex;align-items:center;
-    justify-content:center;box-shadow:0 0 0 1px rgba(255,255,255,0.6),0 20px 60px rgba(0,140,220,0.35);
-    animation:pulseGlow 3.2s ease-in-out infinite;}
-  .qr-glow img{width:126px;height:126px;border-radius:8px;}
-  @keyframes pulseGlow{
-    0%,100%{box-shadow:0 0 0 1px rgba(255,255,255,0.6),0 20px 60px rgba(0,140,220,0.35),0 0 0 0 rgba(0,191,255,0);}
-    50%{box-shadow:0 0 0 1px rgba(255,255,255,0.6),0 20px 70px rgba(0,140,220,0.5),0 0 40px 8px rgba(0,191,255,0.35);}
-  }
-  .qr-caption{margin-top:10px;font-size:12px;font-weight:600;}
-
-  .clock{display:flex;gap:12px;background:var(--ink);padding:16px 22px;border-radius:16px;
-    box-shadow:0 16px 40px rgba(11,37,64,0.35);}
-  .clock-seg{display:flex;flex-direction:column;align-items:center;min-width:52px;}
-  .clock-num{font-family:"SF Mono","Consolas",monospace;font-size:30px;font-weight:700;color:#00E5FF;
-    text-shadow:0 0 14px rgba(0,229,255,0.6);}
-  .clock-label{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#8FD8FF;margin-top:2px;}
-  .clock-colon{font-size:26px;color:#3E5C74;align-self:center;}
-  .countdown-caption{margin-top:8px;font-size:12px;font-weight:600;color:var(--ink-soft);text-align:center;}
-
-  .steps-heading{position:relative;z-index:2;margin-top:44px;font-size:15px;font-weight:700;color:var(--ink);}
-  .steps{position:relative;z-index:2;margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
-    width:100%;max-width:820px;list-style:none;}
-  .step{background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.9);
-    border-radius:14px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;
-    box-shadow:0 8px 22px rgba(0,90,150,0.10);}
-  .step-num{background:var(--ink);color:#fff;width:24px;height:24px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
-  .step-title{font-size:13px;font-weight:700;text-align:left;line-height:1.4;}
-  .step-desc{font-size:12px;font-weight:500;color:var(--ink-soft);text-align:left;line-height:1.4;margin-top:2px;}
-  .steps-then{position:relative;z-index:2;margin-top:22px;font-size:13px;font-weight:700;color:var(--ink-soft);
-    text-transform:uppercase;letter-spacing:1px;}
-  .steps-final{position:relative;z-index:2;margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);
-    gap:14px;width:100%;max-width:820px;list-style:none;}
-  .step-final{background:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.95);
-    border-radius:14px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;
-    box-shadow:0 8px 22px rgba(0,90,150,0.10);}
-  .steps.duo{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
-  .steps.duo .step{max-width:380px;width:100%;}
-  .step-final.step-final--media{flex-direction:column;align-items:stretch;gap:0;}
-  .step-final-row{display:flex;align-items:flex-start;gap:10px;}
-  .step-final--media .ballot-shot{margin-top:14px;max-width:100%;}
-  .steps-final.solo{display:flex;justify-content:center;}
-  .steps-final.solo .step-final{max-width:520px;width:100%;}
-  @media (max-width:720px){
-    .steps, .steps-final{grid-template-columns:1fr;}
-  }
-
-  .ballot-shot{position:relative;z-index:2;margin-top:20px;max-width:600px;width:100%;}
-  .ballot-shot img{width:100%;border-radius:12px;border:2px solid var(--ice);box-shadow:0 10px 26px rgba(0,90,150,0.14);}
-  .ballot-shot figcaption{margin-top:8px;font-size:12px;font-weight:600;color:var(--ink-soft);}
-
-  /* ---------- QR MODAL ---------- */
-  .modal-overlay{
-    position:fixed;inset:0;background:rgba(11,37,64,0.55);z-index:100;
-    display:none;align-items:center;justify-content:center;padding:24px;
-  }
-  .modal-overlay.open{display:flex;}
-  .modal-card{
-    background:#fff;border-radius:20px;padding:32px 28px;max-width:340px;width:100%;
-    text-align:center;box-shadow:0 30px 70px rgba(11,37,64,0.35);position:relative;
-  }
-  .modal-close{
-    position:absolute;top:14px;right:14px;background:#F1F8FC;border:none;border-radius:50%;
-    width:34px;height:34px;font-size:16px;cursor:pointer;color:var(--ink);
-  }
-  .modal-card h2{font-size:17px;font-weight:800;margin-bottom:16px;}
-  .modal-card .qr-glow{margin:0 auto;}
-
-  .work-note{position:relative;z-index:2;margin-top:22px;font-size:12px;color:var(--ink-soft);}
-  .work-note a{color:var(--ink);font-weight:700;}
-
-  /* ---------- VERIFIED SECTION ---------- */
-  .verified{background:#fff;padding:56px 32px;border-top:1px solid #E4EEF3;border-bottom:1px solid #E4EEF3;}
-  .verified-inner{max-width:820px;margin:0 auto;text-align:center;}
-  .badge{display:inline-flex;align-items:center;gap:8px;background:#E6F1FB;color:#0C447C;font-size:13px;
+  /* ---------- WINNER ANNOUNCEMENT ---------- */
+  .announce{background:#fff;padding:56px 32px;border-top:1px solid #E4EEF3;border-bottom:1px solid #E4EEF3;}
+  .announce-inner{max-width:820px;margin:0 auto;text-align:center;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#FFF4D6;color:#7A5200;font-size:13px;
     font-weight:700;padding:8px 18px;border-radius:999px;margin-bottom:18px;}
-  .verified h2{font-size:26px;font-weight:800;margin-bottom:20px;}
-  .proof-shot-link{display:inline-block;border-radius:14px;transition:transform 0.2s ease,box-shadow 0.2s ease;}
-  .proof-shot-link:hover{transform:translateY(-3px);}
-  .proof-shot-link:hover .proof-shot{box-shadow:0 20px 44px rgba(0,90,150,0.18);}
-  .proof-shot{width:100%;max-width:760px;border-radius:14px;border:1px solid #E4EEF3;box-shadow:0 14px 34px rgba(0,90,150,0.10);margin-bottom:18px;display:block;}
-  .stat-row{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-wrap:wrap;}
-  .bio-title{font-size:15px;font-weight:700;color:var(--ink);margin-top:16px;}
-  .bio-text{font-size:14px;color:var(--ink-soft);line-height:1.7;text-align:left;max-width:680px;margin:8px auto 0;}
+  .announce h2{font-size:28px;font-weight:800;margin-bottom:18px;}
+  .announce-text{font-size:15px;color:var(--ink-soft);line-height:1.75;text-align:left;max-width:700px;margin:0 auto 12px;}
+  .stat-row{display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap;}
   .stat-card{background:#F1F8FC;border-radius:14px;padding:18px 28px;min-width:140px;}
+  .stat-card.winner{background:#FFF4D6;}
   .stat-num{font-size:26px;font-weight:800;color:var(--ink);}
   .stat-label{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
-  .verify-link{display:inline-flex;align-items:center;gap:6px;margin-top:26px;font-size:14px;font-weight:700;
+  .verify-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;
     color:var(--ice-deep);text-decoration:none;}
+  .announce-links{display:flex;gap:12px 28px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+
+  /* ---------- CEREMONY VIDEO ---------- */
+  .ceremony{padding:56px 32px 8px;}
+  .ceremony-inner{max-width:820px;margin:0 auto;text-align:center;}
+  .ceremony h2{font-size:26px;font-weight:800;margin-bottom:8px;}
+  .ceremony-sub{font-size:14px;color:var(--ink-soft);margin-bottom:24px;}
+  .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
+    background:#0B2540;box-shadow:0 14px 34px rgba(0,90,150,0.14);margin-bottom:18px;}
+  .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
   /* ---------- EXPLORE WORK ---------- */
   .explore{padding:64px 32px;}
@@ -208,21 +162,14 @@
   .logo-desc{font-size:12px;color:var(--ink-soft);text-align:center;line-height:1.5;}
   .logo-cta{margin-top:4px;font-size:12px;font-weight:700;color:var(--ice-deep);}
 
-  .thanks{text-align:center;margin-top:44px;font-size:15px;color:var(--ink-soft);max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6;}
+  .thanks{text-align:center;margin-top:44px;font-size:15px;color:var(--ink-soft);max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7;}
 
   /* ---------- FOOTER ---------- */
-  .footer{background:#fff;border-top:1px solid #E4EEF3;padding:40px 32px 96px;text-align:center;}
+  .footer{background:#fff;border-top:1px solid #E4EEF3;padding:40px 32px 56px;text-align:center;}
   .footer-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-size:14px;
     font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;margin-bottom:2rem;
     box-shadow:0 10px 24px rgba(11,37,64,0.25);}
   .disclaimer{font-size:11px;color:var(--gray);max-width:640px;margin:0 auto;line-height:1.6;}
-
-  .sticky-cta{
-    position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:50;
-    display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;
-    font-size:14px;font-weight:700;padding:12px 26px;border-radius:999px;text-decoration:none;
-    box-shadow:0 12px 30px rgba(11,37,64,0.4);
-  }
 
   /* ---------- TOOLTIPS ---------- */
   .tooltip-target{position:relative;}
@@ -250,8 +197,10 @@
 
   @media (max-width:720px){
     .logo-grid{grid-template-columns:repeat(2,1fr);}
-    h1{font-size:30px;}
-    .mid-row{gap:28px;}
+    h1{font-size:38px;}
+    .category{font-size:20px;}
+    .who{font-size:22px;}
+    .announce h2{font-size:24px;}
   }
 </style>
 </head>
@@ -265,14 +214,21 @@
   <span>Snowflake Chronicles</span>
 </div>
 
+<main>
 <div class="hero">
   <div class="glow-orb"></div>
-  <div class="eyebrow">Snowflake Community Awards · 2026 Finalist</div>
-  <img class="finalist-badge" src="open_source_I_am_finalist_badge.jpeg" alt="" role="presentation">
-  <h1>Open Source Impact, APJ Finalist</h1>
-  <div class="who">Satish Kumar · LTIMindtree, India</div>
+  <div class="eyebrow">Snowflake Community Awards · 2026</div>
+  <img class="winner-badge" src="award-badge.png" alt="Snowflake Community Awards badge — 2026 Winner, Open Source Impact" width="618" height="571">
+  <h1>2026 WINNER</h1>
+  <div class="category">Open Source Impact — APJ</div>
+  <div class="who">Satish Kumar</div>
+  <div class="role">Senior Technical Specialist · LTIMindtree</div>
+  <div class="tagline">Learn. Build. Document. Share.</div>
+  <p class="tagline-sub">150+ technical articles · Open-source projects · Snowflake architecture · Community knowledge sharing</p>
+  <div class="brand-line">Snowflake Chronicles</div>
+
   <div class="proof-bar" aria-label="Track record">
-    <span class="proof-chip"><span aria-hidden="true">🏆</span><span class="n">150+</span>&nbsp;<span class="l">Articles</span></span>
+    <span class="proof-chip"><span aria-hidden="true">📝</span><span class="n">150+</span>&nbsp;<span class="l">Articles</span></span>
     <span class="proof-chip"><span aria-hidden="true">👥</span><span class="n">9,000+</span>&nbsp;<span class="l">LinkedIn Community</span></span>
     <span class="proof-chip"><span aria-hidden="true">📦</span><span class="n">35+</span>&nbsp;<span class="l">Open Source Repos</span></span>
   </div>
@@ -281,89 +237,52 @@
     <cite>— Open Source Impact, Snowflake Community Awards</cite>
   </blockquote>
 
-  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="cta tooltip-target" data-tooltip="Opens the official Snowflake voting form in a new tab">
-    <span class="ripple" aria-hidden="true"></span>
-    <span aria-hidden="true">🗳️</span> Vote Now →
-  </a>
+  <a href="#work" class="cta">Explore my work →</a>
 
   <div class="secondary-row">
-    <button type="button" class="secondary-btn tooltip-target" id="copyLinkBtn" aria-live="polite" data-tooltip="Copy the voting link to your clipboard">
+    <button type="button" class="secondary-btn tooltip-target" id="copyLinkBtn" aria-live="polite" data-tooltip="Copy this page's link to your clipboard">
       <span aria-hidden="true">🔗</span> Copy link
     </button>
     <button type="button" class="secondary-btn tooltip-target" id="shareBtn" data-tooltip="Share this page to LinkedIn or your network">
       <span aria-hidden="true">📤</span> Share
     </button>
-    <button type="button" class="secondary-btn tooltip-target" id="qrModalBtn" aria-haspopup="dialog" data-tooltip="Show a QR code to scan and vote from your phone">
-      <span aria-hidden="true">📱</span> Show QR code
-    </button>
   </div>
-
-  <button type="button" class="voted-share-link tooltip-target" id="votedShareBtn" data-tooltip="Already voted? Share this page with others instead">Voted already? Share instead →</button>
-
-  <div class="mid-row">
-    <div>
-      <div class="clock" id="clock" role="timer" aria-label="Time remaining to vote">
-        <div class="clock-seg"><span class="clock-num" id="dd">09</span><span class="clock-label">Days</span></div>
-        <span class="clock-colon" aria-hidden="true">:</span>
-        <div class="clock-seg"><span class="clock-num" id="hh">00</span><span class="clock-label">Hours</span></div>
-        <span class="clock-colon" aria-hidden="true">:</span>
-        <div class="clock-seg"><span class="clock-num" id="mm">00</span><span class="clock-label">Min</span></div>
-        <span class="clock-colon" aria-hidden="true">:</span>
-        <div class="clock-seg"><span class="clock-num" id="ss">00</span><span class="clock-label">Sec</span></div>
-      </div>
-      <div class="countdown-caption">Voting closes Sep 15, 2026</div>
-    </div>
-  </div>
-
-  <h2 class="steps-heading"><span aria-hidden="true">🗳️</span> How to vote for Satish Kumar — Open Source Impact (APJ)</h2>
-  <ol class="steps duo">
-    <li class="step"><span class="step-num" aria-hidden="true">1</span><div><div class="step-title"><span class="sr-only">Step 1: </span>Access & Verify</div><div class="step-desc">Open the voting form and enter your email address.</div></div></li>
-    <li class="step"><span class="step-num" aria-hidden="true">2</span><div><div class="step-title"><span class="sr-only">Step 2: </span>Navigate to APJ Category</div><div class="step-desc">Click Next until you reach Page 6 of 7 (Open Source Impact → APJ).</div></div></li>
-  </ol>
-
-  <div class="steps-then">Then</div>
-  <ol class="steps-final solo">
-    <li class="step-final step-final--media">
-      <div class="step-final-row">
-        <span class="step-num" aria-hidden="true">3</span>
-        <div><div class="step-title"><span class="sr-only">Step 3: </span>Select Candidate</div><div class="step-desc">Locate and select the radio button for Satish Kumar | LTIMindtree, India.</div></div>
-      </div>
-      <figure class="ballot-shot">
-        <img src="ballot-radio-button.png" alt="Screenshot of the APJ section on the ballot, showing the exact radio button to select next to: Satish Kumar, LTIMindtree, India — Creates deployable open-source GitHub frameworks and a blueprint for a native Cost Intelligence Platform; has also published 150+ Medium articles through at SnowflakeChronicles">
-        <figcaption>This is exactly what you're looking for on the Community Voting Form</figcaption>
-      </figure>
-    </li>
-  </ol>
-
-  <ol class="steps-final solo">
-    <li class="step-final"><span class="step-num" aria-hidden="true">4</span><div><div class="step-title"><span class="sr-only">Step 4: </span>Submit Vote</div><div class="step-desc">Click Next and hit Submit to finalize.</div></div></li>
-  </ol>
-
-  <p class="work-note">Blocked on your work network? Scan the QR from a personal device, or <a href="https://tinyurl.com/how2vote4satish" target="_blank" rel="noopener">watch the how-to video</a>.</p>
 </div>
 
-<div class="verified">
-  <div class="verified-inner">
-    <span class="badge">✓ Officially listed on Snowflake.com</span>
-    <h2>Verified finalist status</h2>
-    <a class="proof-shot-link tooltip-target" href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" aria-label="Vote for Satish Kumar — opens the voting form" data-tooltip="Opens the official Snowflake voting form in a new tab">
-      <img class="proof-shot" src="linkedin-bio-card.png" alt="Satish Kumar, Senior Technical Specialist at LTIMindtree — bio card: 150+ technical articles on Medium, weekly Snowflake Quick Bytes reaching 9,000+ LinkedIn followers, open-source frameworks on GitHub, nominated by 12 community members. Vote for Satish button.">
-    </a>
-    <p class="bio-title sr-only">Senior Technical Specialist, LTIMindtree</p>
-    <p class="bio-text sr-only">Satish has published 150+ technical articles on Medium (@SnowflakeChronicles) covering Cortex AI, CoWork, Iceberg, governance, and production architecture, with his top articles reaching thousands of views each (top post: 5K views). He maintains open-source frameworks on GitHub (skrz2014) that are built to deploy, not just demonstrate, including a blueprint for building a native Snowflake Cost Intelligence Platform. He publishes weekly "Snowflake Quick Bytes" on LinkedIn reaching 9,000+ followers, and has 435 Medium followers with 272 email subscribers. His content focuses on production-grade implementation patterns that help practitioners bridge the gap between documentation and real-world deployment. Nominated by 12 community members.</p>
+<section class="announce" aria-labelledby="winnerHeading">
+  <div class="announce-inner">
+    <span class="badge"><span aria-hidden="true">🏆</span> 2026 Award Winner</span>
+    <h2 id="winnerHeading">Open Source Impact Winner — APJ</h2>
+    <img class="profile-card" src="profile-card.png" alt="Satish Kumar, Senior Technical Specialist, LTIMindtree" width="808" height="333">
+    <p class="announce-text">I'm honored to be named the 2026 Snowflake Community Awards Open Source Impact winner for APJ. This recognition belongs to a community that reads, builds, questions and shares — thank you to everyone who nominated, voted and amplified this work.</p>
+    <p class="announce-text">Through Snowflake Chronicles I've published 150+ technical articles on Medium covering Cortex AI, Iceberg, governance and production architecture, maintained open-source frameworks on GitHub that are built to deploy rather than just demonstrate — including a blueprint for a native Snowflake Cost Intelligence Platform — and shared weekly "Snowflake Quick Bytes" with a LinkedIn community of 9,000+ followers.</p>
     <div class="stat-row">
       <div class="stat-card"><div class="stat-num">150+</div><div class="stat-label">Technical articles</div></div>
       <div class="stat-card"><div class="stat-num">9,000+</div><div class="stat-label">LinkedIn followers</div></div>
       <div class="stat-card"><div class="stat-num">35+</div><div class="stat-label">Open source repos</div></div>
-      <div class="stat-card"><div class="stat-num">✓</div><div class="stat-label">Verified finalist</div></div>
+      <div class="stat-card winner"><div class="stat-num">🏆</div><div class="stat-label">2026 Award Winner</div></div>
     </div>
-    <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener" data-tooltip="View the official finalist listing on Snowflake.com">View official listing ↗</a>
+    <div class="announce-links">
+      <a class="verify-link tooltip-target" href="https://snowflakechronicles.medium.com/learn-build-share-repeat-winning-the-2026-snowflake-community-award-for-open-source-impact-924f210dbcf3" target="_blank" rel="noopener" data-tooltip="Read the award story on Medium">Read the award story on Medium ↗</a>
+      <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener" data-tooltip="Visit the Snowflake Community Awards page on Snowflake.com">Snowflake Community Awards ↗</a>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="explore">
+<section class="ceremony" aria-labelledby="ceremonyHeading">
+  <div class="ceremony-inner">
+    <h2 id="ceremonyHeading">Watch the Awards Ceremony</h2>
+    <p class="ceremony-sub">The 2026 Snowflake Community Awards ceremony, courtesy of Snowflake</p>
+    <div class="video-wrap">
+      <iframe src="https://fast.wistia.net/embed/iframe/so2shhtcek" title="Snowflake Community Awards Ceremony" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/?wvideo=so2shhtcek" target="_blank" rel="noopener" data-tooltip="Watch the ceremony on Snowflake.com">Watch on Snowflake.com ↗</a>
+  </div>
+</section>
+
+<section class="explore" id="work" aria-labelledby="workHeading">
   <div class="explore-inner">
-    <h2>Explore my work</h2>
+    <h2 id="workHeading">Explore my work</h2>
     <p class="explore-sub">Practical Snowflake knowledge, open-source projects, and learning resources</p>
     <div class="logo-grid">
 
@@ -397,59 +316,19 @@
 
     </div>
 
-    <p class="thanks">🙏 If my work has helped you learn, build, or explore Snowflake, I'd truly appreciate your <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener">vote</a> or a <a href="https://tinyurl.com/satishkumar-snowflake" target="_blank" rel="noopener">share</a>. Thank you for supporting the Snowflake community! ❤️</p>
+    <p class="thanks">🙏 Thank you to everyone who nominated, voted for and shared this work. If it has helped you learn, build, or explore Snowflake, I'd love to hear from you — and the best way to say thanks is to <a href="https://tinyurl.com/satishkumar-snowflake" target="_blank" rel="noopener">share it with a colleague</a>. Thank you for being part of the Snowflake community! ❤️</p>
   </div>
-</div>
+</section>
+</main>
 
-<div class="footer">
-  <a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="footer-cta tooltip-target" data-tooltip="Opens the official Snowflake voting form in a new tab">🗳️ Vote Now →</a>
+<footer class="footer">
+  <a href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener" class="footer-cta tooltip-target" data-tooltip="Read Satish's technical articles on Medium">📝 Read Snowflake Chronicles →</a>
   <p class="disclaimer">This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake Inc. or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners. All other logos and marks shown are trademarks of their respective owners.</p>
-</div>
-
-<a href="https://tinyurl.com/vote4satish" target="_blank" rel="noopener" class="sticky-cta tooltip-target" id="stickyVote" data-tooltip="Opens the official Snowflake voting form in a new tab">🗳️ Vote Now →</a>
-
-<div class="modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
-  <div class="modal-card">
-    <button type="button" class="modal-close" id="qrModalClose" aria-label="Close QR code dialog">✕</button>
-    <h2 id="qrModalTitle">Scan to vote</h2>
-    <div class="qr-glow">
-      <img src="qr-code-v2.png" alt="QR code linking to the voting form for Satish Kumar, Open Source Impact APJ">
-    </div>
-    <p class="qr-caption" style="margin-top:14px;">Scan with your phone camera, or use the link below.</p>
-    <p class="qr-caption" style="margin-top:6px;font-weight:500;word-break:break-all;">tinyurl.com/vote4satish</p>
-  </div>
-</div>
+</footer>
 
 <script>
-  var target = new Date("2026-09-15T09:00:00-07:00").getTime();
-  function tick(){
-    var now = Date.now();
-    var diff = Math.max(0, target - now);
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    document.getElementById("dd").textContent = String(d).padStart(2,"0");
-    document.getElementById("hh").textContent = String(h).padStart(2,"0");
-    document.getElementById("mm").textContent = String(m).padStart(2,"0");
-    document.getElementById("ss").textContent = String(s).padStart(2,"0");
-  }
-  tick();
-  setInterval(tick, 1000);
-
   (function(){
-    var bar = document.getElementById('stickyVote');
-    var heroBtn = document.querySelector('.hero .cta');
-    var footerEl = document.querySelector('.footer');
-    if (!bar || !heroBtn || !footerEl || !('IntersectionObserver' in window)) return;
-    var heroVisible = true, footerVisible = false;
-    function update(){ bar.style.display = (!heroVisible && !footerVisible) ? 'inline-flex' : 'none'; }
-    new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; update(); }, {threshold:0}).observe(heroBtn);
-    new IntersectionObserver(function(entries){ footerVisible = entries[0].isIntersecting; update(); }, {threshold:0, rootMargin:'0px 0px -10% 0px'}).observe(footerEl);
-  })();
-
-  (function(){
-    var VOTE_URL = "https://tinyurl.com/vote4satish";
+    var PAGE_URL = "https://satishkumarai.github.io/vote4satish/";
 
     var copyBtn = document.getElementById('copyLinkBtn');
     if (copyBtn){
@@ -463,56 +342,27 @@
           }, 2200);
         };
         if (navigator.clipboard && navigator.clipboard.writeText){
-          navigator.clipboard.writeText(VOTE_URL).then(done).catch(function(){
-            window.prompt('Copy this link:', VOTE_URL);
+          navigator.clipboard.writeText(PAGE_URL).then(done).catch(function(){
+            window.prompt('Copy this link:', PAGE_URL);
           });
         } else {
-          window.prompt('Copy this link:', VOTE_URL);
+          window.prompt('Copy this link:', PAGE_URL);
         }
       });
     }
 
     var shareBtn = document.getElementById('shareBtn');
-    var votedShareBtn = document.getElementById('votedShareBtn');
-    function doShare(){
-      if (navigator.share){
-        navigator.share({
-          title: 'Vote for Satish Kumar — Snowflake Community Awards 2026',
-          text: 'Satish Kumar is a finalist for Open Source Impact (APJ). Vote before Sep 15, 2026:',
-          url: VOTE_URL
-        }).catch(function(){});
-      } else {
-        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(VOTE_URL), '_blank', 'noopener');
-      }
-    }
-    if (shareBtn) shareBtn.addEventListener('click', doShare);
-    if (votedShareBtn) votedShareBtn.addEventListener('click', doShare);
-
-    var qrBtn = document.getElementById('qrModalBtn');
-    var qrModal = document.getElementById('qrModal');
-    var qrClose = document.getElementById('qrModalClose');
-    var lastFocused = null;
-
-    function openModal(){
-      lastFocused = document.activeElement;
-      qrModal.classList.add('open');
-      qrClose.focus();
-      document.addEventListener('keydown', onKeydown);
-    }
-    function closeModal(){
-      qrModal.classList.remove('open');
-      document.removeEventListener('keydown', onKeydown);
-      if (lastFocused) lastFocused.focus();
-    }
-    function onKeydown(e){
-      if (e.key === 'Escape') closeModal();
-    }
-
-    if (qrBtn && qrModal && qrClose){
-      qrBtn.addEventListener('click', openModal);
-      qrClose.addEventListener('click', closeModal);
-      qrModal.addEventListener('click', function(e){
-        if (e.target === qrModal) closeModal();
+    if (shareBtn){
+      shareBtn.addEventListener('click', function(){
+        if (navigator.share){
+          navigator.share({
+            title: 'Satish Kumar — 2026 Winner, Open Source Impact (APJ) · Snowflake Community Awards',
+            text: 'Satish Kumar is the 2026 Snowflake Community Awards Open Source Impact winner for APJ.',
+            url: PAGE_URL
+          }).catch(function(){});
+        } else {
+          window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(PAGE_URL), '_blank', 'noopener');
+        }
       });
     }
   })();
@@ -530,7 +380,6 @@
       }
     } catch (e) {}
   })();
-
 </script>
 </body>
 </html>
