@@ -1,21 +1,15 @@
-# ❄️ Snowflake Community Awards 2026 — Vote for Satish
+# ❄️ Snowflake Community Awards 2026 — Satish Kumar, Open Source Impact Winner (APJ)
 
-Landing page and QR-code voting resource for **Satish Kumar**, finalist for the **2026 Snowflake Community Awards – Open Source Impact (APJ)**.
+Showcase page for **Satish Kumar**, winner of the **2026 Snowflake Community Awards – Open Source Impact (APJ)**.
 
-## 🗳️ Vote
+## 🏆 Award
 
-👉 **[Vote for Satish](https://tinyurl.com/vote4satish)**
+**2026 Winner — Open Source Impact (APJ)**
+Satish Kumar · Senior Technical Specialist, LTIMindtree
 
-**How to vote:**  
-Page 6 → Open Source Impact → APJ → **Satish Kumar | LTIMindtree, India**
+**Learn. Build. Document. Share.**
 
-📅 Voting closes **September 15, 2026**.
-
-## 🎥 How to Vote
-
-👉 **[1-Minute Voting Guide](https://tinyurl.com/how2vote4satish)**
-
-## 🌐 Live Landing Page
+## 🌐 Live Page
 
 👉 **https://satishkumarai.github.io/vote4satish/**
 
@@ -33,7 +27,7 @@ Page 6 → Open Source Impact → APJ → **Satish Kumar | LTIMindtree, India**
 
 ## Disclaimer
 
-This page and its content are created and maintained by **Satish Kumar in a personal capacity**. They are intended solely to share information about my nomination for the **2026 Snowflake Community Awards – Open Source Impact (APJ)**.
+This page and its content are created and maintained by **Satish Kumar in a personal capacity**. They are intended solely to share information about his recognition in the **2026 Snowflake Community Awards – Open Source Impact (APJ)**.
 
 This page is **not affiliated with, sponsored, endorsed, or officially supported by LTIMindtree or Snowflake**, and does not represent the views or positions of either organization.
 
