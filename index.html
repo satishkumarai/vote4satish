@@ -78,6 +78,8 @@
   }
   .winner-badge{position:relative;z-index:2;width:240px;height:auto;margin-bottom:18px;filter:drop-shadow(0 16px 32px rgba(11,37,64,0.25));}
   @media (max-width:720px){ .winner-badge{width:180px;} }
+  .hero-winner{position:relative;z-index:2;display:block;width:100%;max-width:460px;height:auto;margin:0 auto 8px;
+    border-radius:24px;box-shadow:0 18px 44px rgba(11,37,64,0.25);}
   .profile-card{display:block;width:100%;max-width:460px;height:auto;margin:0 auto 26px;}
   h1{position:relative;z-index:2;font-size:54px;font-weight:800;line-height:1.1;letter-spacing:1px;max-width:760px;
     text-shadow:0 2px 24px rgba(255,255,255,0.5);}
@@ -218,11 +220,13 @@
 <div class="hero">
   <div class="glow-orb"></div>
   <div class="eyebrow">Snowflake Community Awards · 2026</div>
-  <img class="winner-badge" src="award-badge.png" alt="Snowflake Community Awards badge — 2026 Winner, Open Source Impact" width="618" height="571">
-  <h1>2026 WINNER</h1>
-  <div class="category">Open Source Impact — APJ</div>
-  <div class="who">Satish Kumar</div>
-  <div class="role">Senior Technical Specialist · LTIMindtree</div>
+  <img class="hero-winner" src="hero-winner.png" alt="Snowflake Community Awards — Open Source Impact 2026 Winner: Satish Kumar, Senior Technical Specialist, LTIMindtree" width="1000" height="1000">
+  <div class="sr-only">
+    <h1>2026 WINNER</h1>
+    <div class="category">Open Source Impact — APJ</div>
+    <div class="who">Satish Kumar</div>
+    <div class="role">Senior Technical Specialist · LTIMindtree</div>
+  </div>
   <div class="tagline">Learn. Build. Document. Share.</div>
   <p class="tagline-sub">150+ technical articles · Open-source projects · Snowflake architecture · Community knowledge sharing</p>
   <div class="brand-line">Snowflake Chronicles</div>
