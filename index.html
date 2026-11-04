@@ -244,6 +244,10 @@
   .share-menu[hidden]{display:none;}
   .share-menu a{display:block;padding:10px 14px;border-radius:8px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;}
   .share-menu a:hover,.share-menu a:focus-visible{background:#F1F8FC;}
+  .video-hint{font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:560px;margin:0 auto 14px;}
+  .jump-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:999px;
+    padding:11px 24px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:14px;}
+  .jump-btn:hover{background:#12365c;}
 </style>
 </head>
 <body>
@@ -323,6 +327,8 @@
     <div class="video-wrap">
       <button type="button" class="video-play" id="playCeremony" aria-label="Play the Snowflake Community Awards ceremony video"><span class="pbtn"><svg viewBox="0 0 24 24" fill="#0B2540" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>Play the ceremony</button>
     </div>
+    <p class="video-hint"><strong>Tip:</strong> The Open Source Impact announcement starts at <strong>12:00</strong>. Press play and move the slider to 12:00, or jump straight there.</p>
+    <button type="button" class="jump-btn tooltip-target" id="jumpAnnouncement" data-tooltip="Start the video at 12:00, the Open Source Impact announcement">▶ Jump to 12:00</button>
     <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/?wvideo=so2shhtcek" target="_blank" rel="noopener" data-tooltip="Watch the ceremony on Snowflake.com">Watch on Snowflake.com ↗</a>
   </div>
 </section>
@@ -440,16 +446,24 @@
   })();
 
   (function(){
+    var wrap = document.querySelector('.video-wrap');
     var vb = document.getElementById('playCeremony');
-    if (!vb) return;
-    vb.addEventListener('click', function(){
-      var f = document.createElement('iframe');
-      f.src = 'https://fast.wistia.net/embed/iframe/so2shhtcek?autoplay=1';
-      f.title = 'Snowflake Community Awards Ceremony';
-      f.allow = 'autoplay; fullscreen';
-      f.setAttribute('allowfullscreen','');
-      vb.replaceWith(f);
-    });
+    var jb = document.getElementById('jumpAnnouncement');
+    if (!wrap) return;
+    function load(start){
+      var f = wrap.querySelector('iframe');
+      if (!f){
+        f = document.createElement('iframe');
+        f.title = 'Snowflake Community Awards Ceremony';
+        f.allow = 'autoplay; fullscreen';
+        f.setAttribute('allowfullscreen','');
+        var b = document.getElementById('playCeremony');
+        if (b) b.replaceWith(f); else wrap.appendChild(f);
+      }
+      f.src = 'https://fast.wistia.net/embed/iframe/so2shhtcek?autoplay=1' + (start ? '&wtime=' + start : '');
+    }
+    if (vb) vb.addEventListener('click', function(){ load(''); });
+    if (jb) jb.addEventListener('click', function(){ load('12m00s'); });
   })();
 </script>
 </body>
