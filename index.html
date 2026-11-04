@@ -278,7 +278,7 @@
     <div class="role">Senior Technical Specialist · LTIMindtree</div>
   </div>
   <div class="tagline">Learn. Build. Document. Share.</div>
-  <p class="tagline-sub">200+ articles · 45+ open-source repos · 12,000+ community followers</p>
+  <p class="tagline-sub">200+ articles · 45+ open-source repos · 12,000+ LinkedIn followers · 600+ Medium followers</p>
   <p class="odds">One of 18 winners from 704 nominations and 53 finalists.</p>
 
   <a href="https://snowflakechronicles.medium.com/learn-build-share-repeat-winning-the-2026-snowflake-community-award-for-open-source-impact-924f210dbcf3" class="cta" target="_blank" rel="noopener">Read the award story ↗</a>
@@ -310,6 +310,7 @@
     <p class="announce-text">Through Snowflake Chronicles I've published 200+ technical articles on Medium covering Cortex AI, Iceberg, governance and production architecture, maintained open-source frameworks on GitHub that are built to deploy rather than just demonstrate — including a blueprint for a native Snowflake Cost Intelligence Platform — and shared weekly "Snowflake Quick Bytes" with a LinkedIn community of 12,000+ followers.</p>
     <div class="stat-row">
       <div class="stat-card"><div class="stat-num">200+</div><div class="stat-label">Technical articles</div></div>
+      <div class="stat-card"><div class="stat-num">600+</div><div class="stat-label">Medium followers</div></div>
       <div class="stat-card"><div class="stat-num">12,000+</div><div class="stat-label">LinkedIn followers</div></div>
       <div class="stat-card"><div class="stat-num">45+</div><div class="stat-label">Open source repos</div></div>
     </div>
@@ -348,7 +349,7 @@
       <a class="logo-card tooltip-target" href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener" data-tooltip="Read the articles on Medium">
         <div class="logo-icon md-icon"><img src="icon-medium.png" alt=""></div>
         <div class="logo-title">Medium</div>
-        <div class="logo-desc">200+ articles on Cortex AI, Iceberg and governance</div>
+        <div class="logo-desc">200+ articles on Cortex AI, Iceberg and governance · 600+ followers</div>
       </a>
 
       <a class="logo-card tooltip-target" href="https://github.com/satishkumarai/" target="_blank" rel="noopener" data-tooltip="Explore the open-source projects on GitHub">
@@ -446,24 +447,49 @@
   })();
 
   (function(){
+    var ID = 'so2shhtcek', START = '12m00s', SECONDS = 720;
     var wrap = document.querySelector('.video-wrap');
     var vb = document.getElementById('playCeremony');
     var jb = document.getElementById('jumpAnnouncement');
+    var api = null;
     if (!wrap) return;
-    function load(start){
-      var f = wrap.querySelector('iframe');
-      if (!f){
-        f = document.createElement('iframe');
-        f.title = 'Snowflake Community Awards Ceremony';
-        f.allow = 'autoplay; fullscreen';
-        f.setAttribute('allowfullscreen','');
-        var b = document.getElementById('playCeremony');
-        if (b) b.replaceWith(f); else wrap.appendChild(f);
-      }
-      f.src = 'https://fast.wistia.net/embed/iframe/so2shhtcek?autoplay=1' + (start ? '&wtime=' + start : '');
+    function embedUrl(start){
+      return 'https://fast.wistia.net/embed/iframe/' + ID + '?autoplay=1' + (start ? '&wtime=' + start : '');
     }
-    if (vb) vb.addEventListener('click', function(){ load(''); });
-    if (jb) jb.addEventListener('click', function(){ load('12m00s'); });
+    function loadApi(){
+      if (!document.getElementById('wistiaEv1')){
+        var sc = document.createElement('script');
+        sc.id = 'wistiaEv1'; sc.async = true;
+        sc.src = 'https://fast.wistia.net/assets/external/E-v1.js';
+        document.head.appendChild(sc);
+      }
+      window._wq = window._wq || [];
+      window._wq.push({ id: ID, onReady: function(video){ api = video; } });
+    }
+    function build(start){
+      var f = document.createElement('iframe');
+      f.title = 'Snowflake Community Awards Ceremony';
+      f.className = 'wistia_embed';
+      f.name = 'wistia_embed';
+      f.allow = 'autoplay; fullscreen';
+      f.setAttribute('allowfullscreen','');
+      f.src = embedUrl(start);
+      var b = document.getElementById('playCeremony');
+      if (b) b.replaceWith(f); else wrap.appendChild(f);
+      loadApi();
+    }
+    function jump(){
+      if (api){                       // video already loaded: move the slider
+        api.time(SECONDS);
+        api.play();
+        return;
+      }
+      var f = wrap.querySelector('iframe');
+      if (f){ f.src = embedUrl(START); return; }   // loaded but API not ready yet
+      build(START);                   // not loaded yet: start at 12:00
+    }
+    if (vb) vb.addEventListener('click', function(){ build(''); });
+    if (jb) jb.addEventListener('click', jump);
   })();
 </script>
 </body>
