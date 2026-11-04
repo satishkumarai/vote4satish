@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B2540">
+<title>Site stats</title>
+<style>
+  :root{--ink:#0B2540;--soft:#35516A;--ice:#00BFFF;--bg:#F7FBFD;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;}
+  h1{font-size:20px;font-weight:800;margin-bottom:4px;}
+  .sub{font-size:14px;color:var(--soft);margin-bottom:28px;}
+  .grid{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .card{background:#fff;border:1px solid #E4EEF3;border-radius:16px;padding:24px 36px;min-width:170px;box-shadow:0 8px 22px rgba(0,90,150,.08);}
+  .num{font-size:44px;font-weight:800;}
+  .label{font-size:14px;font-weight:600;color:var(--soft);margin-top:4px;}
+  button{margin-top:28px;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 28px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;}
+  button:focus-visible{outline:3px solid var(--ice);outline-offset:2px;}
+  .meta{margin-top:16px;font-size:13px;color:var(--soft);min-height:1.2em;}
+  .err{color:#B3261E;}
+</style>
+</head>
+<body>
+  <h1>vote4satish · site stats</h1>
+  <p class="sub">Read-only. Viewing this page does not add a visit.</p>
+  <div class="grid" aria-live="polite">
+    <div class="card"><div class="num" id="visits">–</div><div class="label">Total visits</div></div>
+    <div class="card"><div class="num" id="visitors">–</div><div class="label">Distinct visitors</div></div>
+  </div>
+  <button type="button" id="refresh">Refresh</button>
+  <p class="meta" id="meta"></p>
+<script>
+  var URL_READ = 'https://tally.yuki.sh/hits/vote4satish/site-visits.json?mode=read';
+  var meta = document.getElementById('meta');
+  function fmt(n){ return (typeof n === 'number') ? n.toLocaleString() : '–'; }
+  function load(){
+    meta.className = 'meta'; meta.textContent = 'Loading…';
+    fetch(URL_READ, {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(d){
+        var v = (d.visit !== undefined) ? d.visit : d.count;
+        document.getElementById('visits').textContent = fmt(v);
+        document.getElementById('visitors').textContent = fmt(d.visitor);
+        meta.textContent = 'Updated ' + new Date().toLocaleTimeString();
+      })
+      .catch(function(e){
+        meta.className = 'meta err';
+        meta.textContent = 'Could not load the counter (' + e.message + ').';
+      });
+  }
+  document.getElementById('refresh').addEventListener('click', load);
+  load();
+  setInterval(load, 60000);
+</script>
+</body>
+</html>
