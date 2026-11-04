@@ -328,8 +328,8 @@
     <div class="video-wrap">
       <button type="button" class="video-play" id="playCeremony" aria-label="Play the Snowflake Community Awards ceremony video"><span class="pbtn"><svg viewBox="0 0 24 24" fill="#0B2540" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>Play the ceremony</button>
     </div>
-    <p class="video-hint"><strong>Tip:</strong> The Open Source Impact announcement starts at <strong>12:00</strong>. Press play and move the slider to 12:00, or jump straight there.</p>
-    <button type="button" class="jump-btn tooltip-target" id="jumpAnnouncement" data-tooltip="Start the video at 12:00, the Open Source Impact announcement">▶ Jump to 12:00</button>
+    <p class="video-hint"><strong>Tip:</strong> The Open Source Impact announcement starts at <strong>11:49</strong>. Press play and move the slider to 11:49, or jump straight there.</p>
+    <button type="button" class="jump-btn tooltip-target" id="jumpAnnouncement" data-tooltip="Skip straight to 11:49, where the Open Source Impact announcement begins">▶ Watch the Open Source Impact announcement · 11:49</button>
     <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/?wvideo=so2shhtcek" target="_blank" rel="noopener" data-tooltip="Watch the ceremony on Snowflake.com">Watch on Snowflake.com ↗</a>
   </div>
 </section>
@@ -447,7 +447,7 @@
   })();
 
   (function(){
-    var ID = 'so2shhtcek', START = '12m00s', SECONDS = 720;
+    var ID = 'so2shhtcek', START = '11m49s', SECONDS = 709;
     var wrap = document.querySelector('.video-wrap');
     var vb = document.getElementById('playCeremony');
     var jb = document.getElementById('jumpAnnouncement');
@@ -486,7 +486,7 @@
       }
       var f = wrap.querySelector('iframe');
       if (f){ f.src = embedUrl(START); return; }   // loaded but API not ready yet
-      build(START);                   // not loaded yet: start at 12:00
+      build(START);                   // not loaded yet: start at 11:49
     }
     if (vb) vb.addEventListener('click', function(){ build(''); });
     if (jb) jb.addEventListener('click', jump);
