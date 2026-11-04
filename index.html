@@ -248,6 +248,18 @@
   .jump-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:999px;
     padding:11px 24px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:14px;}
   .jump-btn:hover{background:#12365c;}
+  .topnav{align-items:center;}
+  .topnav a[aria-current="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ice);}
+  .topnav a.nav-ext{background:var(--ink);color:#fff;padding:7px 14px;border-radius:999px;box-shadow:none;white-space:nowrap;}
+  .topnav a.nav-ext:hover{background:#12365c;color:#fff;}
+  .topnav a.nav-ext span{color:inherit;font-size:inherit;font-weight:inherit;}
+  .topnav a.nav-ext .long{display:inline;}
+  .topnav a.nav-ext .short{display:none;}
+  @media (max-width:560px){
+    .topnav a.hide-sm{display:none;}
+    .topnav a.nav-ext .long{display:none;} .topnav a.nav-ext .short{display:inline;}
+    .topnav{gap:12px;}
+  }
 </style>
 </head>
 <body>
@@ -260,9 +272,10 @@
   <span>Snowflake Chronicles</span>
   <nav class="topnav" aria-label="Page sections">
     <a href="#story">Story</a>
-    <a href="#ceremony">Ceremony</a>
+    <a href="#ceremony" class="hide-sm">Ceremony</a>
     <a href="#work">Work</a>
-    <a href="#award">The award</a>
+    <a href="#award" class="hide-sm">The award</a>
+    <a href="https://www.snowflake.com/en/community-awards/" class="nav-ext" target="_blank" rel="noopener" aria-label="Snowflake Community Awards (opens in a new tab)"><span class="long">Snowflake Community Awards</span><span class="short">Awards</span> ↗</a>
   </nav>
 </div>
 
@@ -316,7 +329,6 @@
     </div>
     <div class="announce-links">
       <a class="verify-link tooltip-target" href="https://snowflakechronicles.medium.com/learn-build-share-repeat-winning-the-2026-snowflake-community-award-for-open-source-impact-924f210dbcf3" target="_blank" rel="noopener" data-tooltip="Read the award story on Medium">Read the award story on Medium ↗</a>
-      <a class="verify-link tooltip-target" href="https://www.snowflake.com/en/community-awards/" target="_blank" rel="noopener" data-tooltip="Visit the Snowflake Community Awards page on Snowflake.com">Snowflake Community Awards ↗</a>
     </div>
   </div>
 </section>
@@ -379,7 +391,6 @@
 </main>
 
 <footer class="footer">
-  <a href="https://medium.com/@snowflakechronicles" target="_blank" rel="noopener" class="footer-cta tooltip-target" data-tooltip="Read Satish's technical articles on Medium">Read Snowflake Chronicles →</a>
   <p class="disclaimer">This page is maintained by Satish Kumar in a personal capacity and is not affiliated with, sponsored, or endorsed by Snowflake Inc. or LTIMindtree. Snowflake and LTIMindtree trademarks belong to their respective owners. All other logos and marks shown are trademarks of their respective owners.</p>
 </footer>
 
@@ -489,6 +500,22 @@
     }
     if (vb) vb.addEventListener('click', function(){ build(''); });
     if (jb) jb.addEventListener('click', jump);
+  })();
+
+  (function(){
+    var links = document.querySelectorAll('.topnav a[href^="#"]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function(a){ var el = document.querySelector(a.getAttribute('href')); if (el) map[el.id] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          links.forEach(function(a){ a.removeAttribute('aria-current'); });
+          if (map[e.target.id]) map[e.target.id].setAttribute('aria-current','true');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
   })();
 </script>
 </body>
